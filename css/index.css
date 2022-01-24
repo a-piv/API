@@ -1,0 +1,305 @@
+p {
+  margin: 0;
+}
+p b {
+  font-weight: normal;
+}
+
+/* .formGetApi {
+  display: flex;
+} */
+
+h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.card_list {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 10px 0;
+}
+
+.number-card {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+.inputApi {
+  font-family: Verdana, Arial, Helvetica, sans-serif; /* Семейство шрифта */
+  color: #336; /* Цвет текста */
+  width: 500px;
+}
+
+.formGetApi {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.apiInfo_all {
+  list-style-type: disc;
+}
+
+/* * {
+  box-sizing: border-box;
+}
+.product-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+.product-tr {
+  display: table-row;
+}
+.product-td {
+  display: table-cell;
+  text-align: center;
+  border: none;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+} */
+
+.form-apiBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttons-get {
+  display: flex;
+  flex-wrap: wrap;
+}
+.button {
+  margin-right: 15px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.section {
+  border: 1px solid rgb(190, 190, 190);
+  margin: 0 0 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.product_card {
+  border: 1px solid rgb(190, 190, 190);
+  width: 100%;
+}
+
+.card-header {
+  background-color: aqua;
+  text-align: center;
+}
+
+.card_stock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.card_stocks {
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(223, 223, 223);
+}
+
+.card_orders {
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(255, 251, 191);
+}
+.card_orders_cancel {
+  background-color: rgb(255, 200, 200);
+}
+
+.card_li {
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.refund_color {
+  background-color: rgb(255, 145, 145);
+}
+.doplata_color {
+  background-color: rgb(68, 126, 45);
+}
+
+.orders_color {
+  background-color: rgb(255, 251, 191);
+}
+
+.orders_notNmiD {
+  background-color: rgb(146, 47, 47);
+}
+
+.sales_color {
+  background-color: rgb(198, 255, 145);
+}
+.stocks_color {
+  background-color: rgb(204, 204, 204);
+}
+
+.stornoRefund_color {
+  background-color: rgb(241, 142, 11);
+}
+.stornoSales_color {
+  background-color: rgb(151, 108, 29);
+}
+
+.sales_textColor {
+  color: rgb(92, 179, 11);
+}
+.refund_textColor {
+  color: rgb(255, 64, 64);
+}
+
+.secondaryInfo {
+  list-style: none;
+  margin: 5px 0 0 20px;
+}
+.photo-card {
+  max-width: 75px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-card_small {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.name-card {
+  width: 20%;
+  border: 1 px solid black;
+
+  padding-left: 10px;
+}
+
+.price-card {
+  width: 30%;
+  padding-left: 10px;
+}
+
+.price-card_rub::after {
+  content: " руб.";
+}
+
+.quantity-card {
+  padding-left: 10px;
+}
+
+.name {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.inWayToClientApi::after {
+  content: " шт.";
+}
+
+.inWayFromClientApi::after {
+  content: " шт.";
+}
+
+.formula {
+  color: rgb(255, 0, 0);
+}
+
+.price-productApi::after {
+  content: " руб.";
+}
+.discountApi::after {
+  content: "%";
+}
+
+.final-price::after {
+  content: " руб.";
+}
+
+.quantityAPI::after {
+  content: " шт.";
+}
+
+.quantityFullApi::after {
+  content: " шт.";
+}
+.quantityNotInOrdersApi::after {
+  content: " шт.";
+}
+.inWayToClientApi::after {
+  content: " шт.";
+}
+.inWayFromClientApi::after {
+  content: " шт.";
+}
+
+.totalPriceApi::after {
+  content: " руб.";
+}
+
+.discountPercentApi::after {
+  content: "%";
+}
+
+.quantityApi::after {
+  content: " шт.";
+}
+
+.promoCodeDiscountApi::after {
+  content: "%";
+}
+.sppApi::after {
+  content: "%";
+}
+
+.priceWithDiscApi::after {
+  content: " руб.";
+}
+
+.finishedPriceApi::after {
+  content: " руб.";
+}
+.forPayApi::after {
+  content: " руб.";
+}
+
+.stock-header {
+  width: 100%;
+  display: flex;
+}
+
+.stock-date::before {
+  content: " от ";
+}
+
+.incomeidApi::before {
+  content: "Номер поставки: ";
+}
+
+fieldset {
+  border: 1px solid #339dc7;
+  /* Чтобы подстраивался под контент */
+  border-radius: 10px;
+}
+
+legend {
+  color: #339dc7;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-incomes {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 8px;
+}
