@@ -354,7 +354,8 @@ function createCardStock(api) {
     cardTemplate.querySelector(".photo-card_small").src = `${image}`;
     cardTemplate.querySelector(".name").textContent = params.name;
     cardTemplate.querySelector(".barcodeApi").textContent = params.barcode;
-    cardTemplate.querySelector(".discountApi").textContent = params.Discount;
+    cardTemplate.querySelector(".discountApi").textContent =
+      params.discountPercent;
     cardTemplate.querySelector(".price-productApi").textContent = params.Price;
     cardTemplate.querySelector(".final-price").textContent = `${
       params.Price - (params.Price / 100) * params.Discount
