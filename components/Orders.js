@@ -66,12 +66,14 @@ class Orders {
       this.discountPercent;
 
     // Рассчитываем суму заказа согластно стоимости товара и скидке
-    this.ordersSumm = Math.round(
+    this.ordersSkidkaVRub = Math.round(
       (this.totalPrice / 100) * this.discountPercent
     );
-    this._cardOrders.querySelector(".totalPriceNotApi").textContent = `${
-      this.totalPrice - this.ordersSumm
-    } руб.`;
+
+    this.ordersSumm = this.totalPrice - this.ordersSkidkaVRub;
+    this._cardOrders.querySelector(
+      ".totalPriceNotApi"
+    ).textContent = `${this.ordersSumm} руб.`;
 
     this._cardOrders.querySelector(".warehouseNameApi").textContent =
       this.warehouseName;
@@ -94,9 +96,9 @@ class Orders {
     let li = document.createElement("li");
     li.classList.add("card_li");
     counterOrdersAll++;
-    summOrders++;
+    //summOrders++;
 
-    if ((this.nmId = 0)) {
+    if (this.nmId == 0) {
       li.classList.add("orders_notNmiD");
       counterNmIdNull++;
       console.log(counterNmIdNull);
@@ -158,6 +160,7 @@ function counterAllOrders() {
   // Заказы без артикула
   let listOrdersNotNmId = document.createElement("li");
   if (counterNmIdNull > 0) {
+    listOrdersNotNmId.classList.add("secondaryInfo");
     listOrdersNotNmId.classList.add("refund_textColor");
     listOrdersNotNmId.textContent = `Заказов без номера ${counterNmIdNull} шт.`;
     ul.append(listOrdersNotNmId);
