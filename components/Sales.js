@@ -55,15 +55,16 @@ class Sales {
   _generateCardSales() {
     this._element = this._getTemplateSales();
     this._element.querySelector(".number-card").textContent = this.i;
-
     this._element
       .querySelector(".photo-card-href")
       .setAttribute(
         "href",
         `https://www.wildberries.ru/catalog/${this.nmId}/detail.aspx`
       );
-    let image = imageCrеate(this.nmId);
-    this._element.querySelector(".photo-card_small").src = `${image}`;
+
+    this._element.querySelector(".photo-card_small").src = `${imageCrеate(
+      this.nmId
+    )}`;
 
     this._element.querySelector(".barcodeApi").textContent = this.barcode;
     this._element.querySelector(".brandApi").textContent = this.brand;
@@ -101,9 +102,6 @@ class Sales {
     this._element.querySelector(".supplierArticleApi").textContent =
       this.supplierArticle;
     this._element.querySelector(".techSizeApi").textContent = this.techSize;
-
-    // console.log(typeof this.techSize);
-
     this._element.querySelector(".totalPriceApi").textContent = this.totalPrice;
     this._element.querySelector(".warehouseNameApi").textContent =
       this.warehouseName;
@@ -113,8 +111,6 @@ class Sales {
     // SCCode: "";
     // isRealization: false;
     // isSupply: true;
-    // this._backgroundSales();
-    // console.log(this.saleSymbol);
 
     return this._element;
   }

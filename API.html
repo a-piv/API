@@ -187,13 +187,13 @@
             </div>
             
             <div class="name-card">
-              <p class="name">
+              <!-- <p class="name">
                 Браслет мужской
-              </p>
+              </p> -->
               <p class="brand">Бренд: <b class="brandApi">Brand</b></p>
-              <p class="nmid">Артиукл WB: <b class="nmidAPI">1231312</b></p>
+              <p class="nmid">Артиукл WB: <b class="nmIdApi">1231312</b></p>
               <p class="supplierArticle">
-                Артикул магазина: <b class="supplierArticleAPI">asfasdf31321</b>
+                Артикул магазина: <b class="supplierArticleApi">asfasdf31321</b>
               </p>
               <p class="barcode">Штрихкод: <b class="barcodeApi">123</b></p>
               <p class="category">Категория: <b class="categoryApi"></b></p>
@@ -206,14 +206,11 @@
               <p class="daysOnSite">
                 Дней на сайте: <b class="daysOnSiteApi">21</b>
               </p>
-              <p class="lastChangeDate">
-                Обновлено: 
-                <b class="lastChangeDateApi">12.12.2021 12:40</b>
-              </p>
+
             </div>
             <div class="price-card">
-              <p class="price-product">
-                Цена: <b class="price-productApi">2552</b>
+              <p class="price">
+                Цена: <b class="priceApi">2552</b>
               </p>
               <p class="discount">Скидка: <b class="discountApi">80</b></p>
               <p class="calculation">
@@ -222,7 +219,7 @@
             </div>
             <div class="quantity-card">
               <p class="quantity">
-                Кол-во для продажи: <b class="quantityAPI">15</b>
+                Кол-во для продажи: <b class="quantityApi">15</b>
               </p>
               <p class="quantityFull">
                 Кол-во полное: <b class="quantityFullApi">15</b>
@@ -235,6 +232,21 @@
               </p>
               <p class="inWayFromClient">
                 В пути от клиента: <b class="inWayFromClientApi"></b>
+              </p>
+              <p class="isSupply">
+                  договор поставки <b class="isSupplyApi"></b>
+              </p>
+              <p class="isRealization">
+                Договор реализации:
+                <b class="isRealizationApi">isRealization</b>
+              </p>
+              <p class="SCCode">
+                Код контракта:
+                <b class="SCCodeApi">isRealization</b>
+              </p>
+              <p class="lastChangeDate">
+                Обновлено: 
+                <b class="lastChangeDateApi">12.12.2021 12:40</b>
               </p>
             </div>
           </div>
@@ -495,6 +507,8 @@
       <script src="./components/Incomes.js"></script>
       <script src="./components/Sales.js"></script>
       <script src="./components/Orders.js"></script>
+      <script src="./components/Stock.js"></script>
+      <script src="./utils/getDiscount.js"></script>
     </div>
   </body>
 </html>

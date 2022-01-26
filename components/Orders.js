@@ -48,8 +48,10 @@ class Orders {
         "href",
         `https://www.wildberries.ru/catalog/${this.nmId}/detail.aspx`
       );
-    let image = imageCrеate(this.nmId);
-    this._cardOrders.querySelector(".photo-card_small").src = `${image}`;
+
+    this._cardOrders.querySelector(".photo-card_small").src = `${imageCrеate(
+      this.nmId
+    )}`;
 
     this._cardOrders.querySelector(".numberApi").textContent = this.number;
     this._cardOrders.querySelector(".dateApi").textContent = this.date;
