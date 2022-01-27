@@ -68,11 +68,9 @@ class Orders {
       this.discountPercent;
 
     // Рассчитываем суму заказа согластно стоимости товара и скидке
-    this.ordersSkidkaVRub = Math.round(
-      (this.totalPrice / 100) * this.discountPercent
-    );
+    this.ordersSkidkaVRub = (this.totalPrice / 100) * this.discountPercent;
 
-    this.ordersSumm = this.totalPrice - this.ordersSkidkaVRub;
+    this.ordersSumm = Math.floor(this.totalPrice - this.ordersSkidkaVRub);
     this._cardOrders.querySelector(
       ".totalPriceNotApi"
     ).textContent = `${this.ordersSumm} руб.`;
@@ -104,6 +102,20 @@ class Orders {
       li.classList.add("orders_notNmiD");
       counterNmIdNull++;
       console.log(counterNmIdNull);
+      let bottonNext = document.createElement("button");
+      bottonNext.textContent = "Следующий";
+      bottonNext.addEventListener("click", getNextSelector("orders_notNmiD"));
+      this._cardOrders.querySelector(".warehouseNameApi").append(bottonNext);
+      // let a = document.createElement("a");
+      // a.appendChild(bottonNext);
+      // let linkText = document.createTextNode("Следующий пустой");
+
+      // let b = document.querySelector(".orders_notNmiD");
+      // a.href = b;
+      // console.log(a);
+      //
+      // апи с пустыми от 22 MWIxN2ZiYTItMDcwNC00NWZjLTllNzAtMTZiM2ZkYjhhNzhm
+      // this.nmId.appendChild(a);
     }
 
     if (this.isCancel) {

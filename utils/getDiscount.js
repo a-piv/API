@@ -10,3 +10,7 @@ function imageCrеate(nmId) {
 function getDiscount(price, discount) {
   return Math.round(price - (price / 100) * discount);
 }
+
+function getNextSelector(selector) {
+  console.log(document.querySelector(selector));
+}
