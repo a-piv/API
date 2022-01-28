@@ -7,23 +7,6 @@ const buttonGetreportDetailByPeriod = document.querySelector(
   ".buttonGetreportDetailByPeriod"
 );
 
-// import {
-//   buttonGetStocks,
-//   buttonGetOrders,
-//   buttonGetSales,
-//   buttonGetIncomes,
-// } from "../utils/constants.js";
-
-// const stockURL =
-// "https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2021-10-13T00:00:00.000Z&key=OGRlMzFjMTQtYThiNy00ZTc0LWI4N2ItOTdlYTg5NmU0OTdh";
-
-// let inWayToClientCounter = 0;
-// let inWayFromClientCounter = 0;
-
-// document.querySelector(".buttonGetTest").addEventListener("click", () => {
-//   console.log("чик");
-// });
-
 buttonGetStocks.addEventListener("click", () => {
   getJson("stocks");
 });
@@ -37,17 +20,6 @@ buttonGetSales.addEventListener("click", () => {
 buttonGetIncomes.addEventListener("click", () => {
   getJson("incomes");
 });
-// buttonGetreportDetailByPeriod.addEventListener("click", () => {
-//   getJson("buttonGetreportDetailByPeriod");
-// });
-
-//const imageArt-big = "https://images.wbstatic.net/c516x688/new/";
-//const imageArt = "https://img1.wbstatic.net/tm/new/";
-
-// function apiKey() {
-//   fetch(stockURL).then((response) => console.log(response.json()));
-//   // .catch((result) => console.log("Ошибка HTTP: " + response.status));
-// }
 
 //Проверяем флаг
 let flagApi = document.getElementById("flagApi");
@@ -59,12 +31,6 @@ flagApi.addEventListener("click", function (event) {
     return (flag = 0);
   }
 });
-// flagApi.value == "checked" ? (flagApi = 1) : (flagApi = 0);
-
-// let response = fetch(stockURL);
-// console.log(response);
-
-// Проверка выбора чекбокса
 
 // Рабочая функция которая достаёт API
 function getJson(method) {
@@ -86,35 +52,12 @@ function getJson(method) {
     if (method == "stocks") {
       console.log("Метод склад");
       createCardStock(api);
-
-      // itogInfoApi(apiInfo_all, api, dateApi, flag, "Всего товаров");
-      // console.log(inWayToClientCounter, inWayFromClientCounter);
-      // generalInfoList("К клиенту", inWayToClientCounter, apiInfo_all);
-      // generalInfoList("От клиента", inWayFromClientCounter, apiInfo_all);
     } else if (method == "orders") {
       console.log("Метод заказы");
       createCardOrders(api);
-      // itogInfoApi(apiInfo_all, api, dateApi, flag, "Всего заказов");
-      // generalInfoList("Успешных заказов", orderOkCounter, apiInfo_all);
     } else if (method == "sales") {
       console.log("Метод продажи");
       createCardSales(api);
-      // itogInfoApi(apiInfo_all, api, dateApi, flag, "Всего продаж и возвратов");
-      // generalInfoList("Продаж", salesOkCounter, apiInfo_all);
-      // generalInfoList("Возвратов", salesRefundCounter, apiInfo_all);
-      // generalInfoList("Доплат", salesDoplataCounter, apiInfo_all);
-      // generalInfoList(
-      //   "Сторно-возвратов",
-      //   salesStornoRefundCounter,
-      //   apiInfo_all
-      // );
-      // generalInfoList("Сторно-Доплат", salesStornoalesCounter, apiInfo_all);
-
-      // generalInfoList("Доплат", salesDoplataCounter, apiInfo_all);
-
-      // if (salesDoplataCounter > 0) {
-      //   generalInfoList("Доплат", salesRefundCounter, apiInfo_all);
-      // }
     } else if (method == "incomes") {
       createCardIncomes(api);
     } else if (method == "buttonGetreportDetailByPeriod") {
@@ -129,74 +72,6 @@ function getJson(method) {
 
   xhr.send();
 }
-// .then((array) =>
-//   array.forEach((element) => {
-//     console.log(element);
-//   })
-// );
-
-// let apiKey = fatch(
-//   "https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2021-10-13T00:00:00.000Z&key=OGRlMzFjMTQtYThiNy00ZTc0LWI4N2ItOTdlYTg5NmU0OTdh"
-// );
-
-// let promise = fetch(url, [options])
-// let response = await fetch(url);
-
-// if (response.ok) { // если HTTP-статус в диапазоне 200-299
-//   // получаем тело ответа (см. про этот метод ниже)
-//   let json = await response.json();
-// } else {
-//   alert("Ошибка HTTP: " + response.status);
-// }
-
-// console.log(buttonGetApi);
-
-// Указать вчерашнюю дату
-function dateTime() {
-  let date = document.getElementById("dateTime");
-  //  console.log(new Date());
-  console.log(date.value);
-  date.value = new Date();
-  console.log(date);
-  // date.set;
-
-  // document.getElementById(
-  //   "dateTime"
-  // ).value = `${today.getFullYear()}-${today.getMonth()}-${0}${today.getDate()}`;
-}
-// dateTime();
-// console.log(new Date());
-// console.log(new Date("2020-09-20"));
-
-class CardOld {
-  constructor(cardSelector) {
-    this._cardSelector = cardSelector;
-    console.log("Карточка создана");
-  }
-
-  generateCard() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card_stock")
-      .cloneNode(true);
-    console.log(cardElement);
-    this._element.querySelector(
-      ".card__image"
-    ).style.backgroundImage = `url(${imagetest})`;
-    this._element.querySelector(".card__title").textContent = this._title;
-    this._element.querySelector(".card__info").textContent = this._description;
-    this._element.querySelector(".card__price-property").textContent =
-      this._price;
-
-    return this._element;
-  }
-}
-// new Card(){
-//   const
-// }
-
-// const newacardcraeate = document.querySelector(".createCard");
-// newacardcraeate.addEventListener("click", new Card());
 
 class Section {
   constructor({ api }, containerSelector) {
@@ -296,6 +171,7 @@ function createCardSales(api) {
   summSales = 0;
   summRefund = 0;
   summDoplata = 0;
+  countNull = 0;
   api.forEach((params, i) => {
     //   let li = document.createElement("li");
     //   li.classList.add("card_li");

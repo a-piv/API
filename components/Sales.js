@@ -8,6 +8,7 @@ let counterA_stornoSale = 0;
 let summSales = 0;
 let summRefund = 0;
 let summDoplata = 0;
+let countNull = 0;
 
 class Sales {
   constructor(APISales, i) {
@@ -125,7 +126,7 @@ class Sales {
     document.querySelector(".card_list").append(li);
     li.append(cardSalesLi);
     counterSalesAll++;
-    if (saleSymbol == "S") {
+    if (saleSymbol == "S" && this.forPay != 0) {
       li.classList.add("sales_color");
       counterSales = counterSales + this.quantity;
       summSales = summSales + this.finishedPrice;
@@ -149,14 +150,12 @@ class Sales {
     if (this.techSize == 0) {
       this._element.querySelector(".techSize").remove();
     }
-    console.log(`Всего записей в API: ${counterSalesAll}`);
-    console.log(`Кол-во продаж (шт): ${counterSales}`);
-    console.log(`Сумма продаж: ${summSales}`);
-    console.log(`Кол-во возвартов: ${counterRefund}`);
-    console.log(`Сумма возвартов: ${summRefund}`);
-    console.log(`Кол-во доплат: ${counterDoplata}`);
-    console.log(`Кол-во Сторно возвратов: ${counterB_stornoVozvrat}`);
-    console.log(`Кол-во Сторно продаж: ${counterA_stornoSale}`);
+
+    if (this.forPay == 0) {
+      li.classList.add("forPay_null");
+      countNull++;
+      console.log(countNull);
+    }
   }
 }
 // Счетчик
@@ -185,12 +184,6 @@ function counterAllSales() {
       2
     )} руб.`;
     ul.append(listSales);
-
-    // let listSummSales = document.createElement("li");
-    // listSummSales.classList.add("secondaryInfo");
-    // listSummSales.classList.add("sales_textColor");
-    // listSummSales.textContent = `Продаж на сумму: ${summSales.toFixed(2)} руб.`;
-    // ul.append(listSummSales);
   }
 
   let listRefund = document.createElement("li");
@@ -201,41 +194,43 @@ function counterAllSales() {
       2
     )} руб.`;
     ul.append(listRefund);
-
-    // let listSummRefund = document.createElement("li");
-    // listSummRefund.classList.add("secondaryInfo");
-    // listSummRefund.classList.add("refund_textColor");
-    // listSummRefund.textContent = `Возвратов на сумму: ${summRefund.toFixed(2)}`;
-    // ul.append(listSummRefund);
   }
 
   let listDoplata = document.createElement("li");
   if (counterDoplata > 0) {
     listDoplata.classList.add("secondaryInfo");
-    listDoplata.textContent = `Всего доплат: ${counterDoplata}`;
+    listDoplata.textContent = `Всего доплат: ${counterDoplata}шт.`;
     ul.append(listDoplata);
 
     let listSummDoplata = document.createElement("li");
     listSummDoplata.classList.add("secondaryInfo");
-    listSummDoplata.textContent = `Доплат на сумму: ${summDoplata.toFixed(2)}`;
+    listSummDoplata.textContent = `Доплат на сумму: ${summDoplata.toFixed(
+      2
+    )}руб.`;
     ul.append(listSummDoplata);
   }
 
   let listStornoVozvrat = document.createElement("li");
   if (counterB_stornoVozvrat > 0) {
     listStornoVozvrat.classList.add("secondaryInfo");
-    listStornoVozvrat.textContent = `Всего стороно возвратов: ${counterB_stornoVozvrat}`;
+    listStornoVozvrat.textContent = `Всего стороно возвратов: ${counterB_stornoVozvrat}шт.`;
     ul.append(listStornoVozvrat);
   }
 
   let listStornoSale = document.createElement("li");
   if (counterA_stornoSale > 0) {
     listStornoSale.classList.add("secondaryInfo");
-    listStornoSale.textContent = `Всего стороно продаж: ${counterB_stornoVozvrat}`;
+    listStornoSale.textContent = `Всего стороно продаж: ${counterB_stornoVozvrat}шт.`;
     ul.append(listStornoSale);
   }
 
-  document.querySelector(".apiInfo").append(ul);
+  let forPayNull = document.createElement("li");
+  if (countNull > 0) {
+    forPayNull.classList.add("forPay_null_text");
+    forPayNull.classList.add("secondaryInfo");
+    forPayNull.textContent = `Продаж с нулевой стоимостью: ${countNull}шт`;
+    ul.append(forPayNull);
+  }
 
-  console.log(ul);
+  document.querySelector(".apiInfo").append(ul);
 }

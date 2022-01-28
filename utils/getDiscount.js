@@ -11,6 +11,27 @@ function getDiscount(price, discount) {
   return Math.round(price - (price / 100) * discount);
 }
 
-function getNextSelector(selector) {
-  console.log(document.querySelector(selector));
+function getNextSelector(event) {
+  // event.preventDefault();
+  // const blockID = anchor.getAttribute('href')
+
+  document.querySelector(".orders_notNmiD");
+  console.log(document.querySelector(".orders_notNmiD"));
 }
+
+// Указать вчерашнюю дату
+function dateTime() {
+  let date = document.getElementById("dateTime");
+  //  console.log(new Date());
+  console.log(date.value);
+  date.value = new Date();
+  console.log(date);
+  // date.set;
+
+  // document.getElementById(
+  //   "dateTime"
+  // ).value = `${today.getFullYear()}-${today.getMonth()}-${0}${today.getDate()}`;
+}
+// dateTime();
+// console.log(new Date());
+// console.log(new Date("2020-09-20"));
