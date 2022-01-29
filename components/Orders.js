@@ -102,7 +102,7 @@ class Orders {
       counterNmIdNull++;
       let bottonNext = document.createElement("button");
       bottonNext.textContent = "Следующий";
-      bottonNext.addEventListener("click", getNextSelector("orders_notNmiD"));
+      bottonNext.addEventListener("click", console.log("orders_notNmiD"));
       this._cardOrders.querySelector(".warehouseNameApi").append(bottonNext);
     }
 
@@ -166,6 +166,7 @@ function counterAllOrders() {
     listOrdersNotNmId.classList.add("refund_textColor");
     listOrdersNotNmId.textContent = `Заказов без номера ${counterNmIdNull} шт.`;
     ul.append(listOrdersNotNmId);
+    listOrdersNotNmId.addEventListener("click", console.log("0"));
   }
 
   document.querySelector(".apiInfo").append(ul);

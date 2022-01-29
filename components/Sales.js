@@ -118,13 +118,13 @@ class Sales {
 
   // Выделаем фоном продажи, возвраты и счётчик ситает кол-во продаж и возвратов
   _cardBackgroundSales() {
-    let cardSalesLi = this._generateCardSales();
+    this._cardSalesLi = this._generateCardSales();
 
     let li = document.createElement("li");
     let saleSymbol = this.saleID.substring(0, 1);
     li.classList.add("card_li");
     document.querySelector(".card_list").append(li);
-    li.append(cardSalesLi);
+    li.append(this._cardSalesLi);
     counterSalesAll++;
     if (saleSymbol == "S" && this.forPay != 0) {
       li.classList.add("sales_color");
@@ -153,8 +153,18 @@ class Sales {
 
     if (this.forPay == 0) {
       li.classList.add("forPay_null");
+      li.setAttribute("id", countNull);
       countNull++;
-      console.log(countNull);
+      let buttonHref = document.createElement("a");
+      buttonHref.href = `#${countNull + 1}`;
+      let buttonNext = document.createElement("Button");
+      buttonNext.classList.add("button_next");
+      buttonNext.textContent = "Следующий где 0руб.";
+
+      buttonHref.append(buttonNext);
+
+      let buttonSelector = this._element.querySelector(".photo-card");
+      buttonSelector.append(buttonHref);
     }
   }
 }
@@ -196,40 +206,48 @@ function counterAllSales() {
     ul.append(listRefund);
   }
 
-  let listDoplata = document.createElement("li");
   if (counterDoplata > 0) {
+    let listDoplata = document.createElement("li");
     listDoplata.classList.add("secondaryInfo");
-    listDoplata.textContent = `Всего доплат: ${counterDoplata}шт.`;
-    ul.append(listDoplata);
-
-    let listSummDoplata = document.createElement("li");
-    listSummDoplata.classList.add("secondaryInfo");
-    listSummDoplata.textContent = `Доплат на сумму: ${summDoplata.toFixed(
+    listDoplata.textContent = `Всего доплат: ${counterDoplata}шт. на сумму: ${summDoplata.toFixed(
       2
     )}руб.`;
-    ul.append(listSummDoplata);
+    ul.append(listDoplata);
+
+    // let listSummDoplata = document.createElement("li");
+    // listSummDoplata.classList.add("secondaryInfo");
+    // listSummDoplata.textContent = `Доплат на сумму: ${summDoplata.toFixed(
+    //   2
+    // )}руб.`;
+    // ul.append(listSummDoplata);
   }
 
-  let listStornoVozvrat = document.createElement("li");
   if (counterB_stornoVozvrat > 0) {
+    let listStornoVozvrat = document.createElement("li");
     listStornoVozvrat.classList.add("secondaryInfo");
     listStornoVozvrat.textContent = `Всего стороно возвратов: ${counterB_stornoVozvrat}шт.`;
     ul.append(listStornoVozvrat);
   }
 
-  let listStornoSale = document.createElement("li");
   if (counterA_stornoSale > 0) {
+    let listStornoSale = document.createElement("li");
     listStornoSale.classList.add("secondaryInfo");
     listStornoSale.textContent = `Всего стороно продаж: ${counterB_stornoVozvrat}шт.`;
     ul.append(listStornoSale);
   }
 
-  let forPayNull = document.createElement("li");
+  //Продажи без суммы forPay =0
+
   if (countNull > 0) {
-    forPayNull.classList.add("forPay_null_text");
-    forPayNull.classList.add("secondaryInfo");
-    forPayNull.textContent = `Продаж с нулевой стоимостью: ${countNull}шт`;
-    ul.append(forPayNull);
+    // Кнопка под фото
+    let forPayHref = document.createElement("a");
+    forPayHref.href = "#0";
+    let forPayNullButton = document.createElement("button");
+    forPayNullButton.classList.add("forPay_null_text");
+    forPayNullButton.classList.add("secondaryInfo");
+    forPayNullButton.textContent = `БАГ: Продаж с нулевой стоимостью: ${countNull}шт`;
+    forPayHref.append(forPayNullButton);
+    ul.append(forPayHref);
   }
 
   document.querySelector(".apiInfo").append(ul);
