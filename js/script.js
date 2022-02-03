@@ -32,6 +32,13 @@ flagApi.addEventListener("click", function (event) {
   }
 });
 
+function getAPI(sale) {
+  const dateApi = document.querySelector("#dateApi").value;
+  const api = document.querySelector(".inputApi").value;
+  const stockURL = `https://suppliers-stats.wildberries.ru/api/v1/supplier/sales?dateFrom=${dateApi}T00:00:00.000Z&flag=${flag}&key=${api}`;
+  return stockURL;
+}
+
 // Рабочая функция которая достаёт API
 function getJson(method) {
   const dateApi = document.querySelector("#dateApi").value;
@@ -189,6 +196,7 @@ function createCardSales(api) {
 }
 
 function createCardOrders(api) {
+  counterOrdersAll = 0;
   counterOrdersOk = 0;
   counterOrdersCansel = 0;
   summOrders = 0;

@@ -8,7 +8,11 @@ let counterA_stornoSale = 0;
 let summSales = 0;
 let summRefund = 0;
 let summDoplata = 0;
+let countNullDoplata = 0;
 let countNull = 0;
+
+let saleNull = 0;
+let saleNullDade = 0;
 
 class Sales {
   constructor(APISales, i) {
@@ -151,20 +155,29 @@ class Sales {
       this._element.querySelector(".techSize").remove();
     }
 
-    if (this.forPay == 0) {
+    if (this.forPay == 0 && saleSymbol == "S") {
       li.classList.add("forPay_null");
       li.setAttribute("id", countNull);
       countNull++;
+      saleNull = this.saleID;
+      saleNullDade = this.date;
+
       let buttonHref = document.createElement("a");
       buttonHref.href = `#${countNull + 1}`;
       let buttonNext = document.createElement("Button");
-      buttonNext.classList.add("button_next");
+      buttonNext.classList.add("buttonForPay_next");
       buttonNext.textContent = "Следующий где 0руб.";
 
       buttonHref.append(buttonNext);
 
       let buttonSelector = this._element.querySelector(".photo-card");
       buttonSelector.append(buttonHref);
+    }
+
+    // Кол-во доплат, где сумму равна нулю
+    if (this.forPay == 0 && saleSymbol == "D") {
+      li.classList.add("forPay_null");
+      countNullDoplata++;
     }
   }
 }
@@ -229,6 +242,13 @@ function counterAllSales() {
     ul.append(listStornoVozvrat);
   }
 
+  if (countNullDoplata > 0) {
+    let listStornoVozvrat = document.createElement("li");
+    listStornoVozvrat.classList.add("secondaryInfo");
+    listStornoVozvrat.textContent = `Всего доплат с нулевой стоимостью: ${countNullDoplata}шт. (Это баг, но пользователям не пишем)`;
+    ul.append(listStornoVozvrat);
+  }
+
   if (counterA_stornoSale > 0) {
     let listStornoSale = document.createElement("li");
     listStornoSale.classList.add("secondaryInfo");
@@ -248,7 +268,64 @@ function counterAllSales() {
     forPayNullButton.textContent = `БАГ: Продаж с нулевой стоимостью: ${countNull}шт`;
     forPayHref.append(forPayNullButton);
     ul.append(forPayHref);
+
+    // Создаём кнопку для отправки письма
+    let ticketButton = document.createElement("button");
+    ticketButton.classList.add("forPay_null_text");
+    ticketButton.classList.add("secondaryInfo");
+    ticketButton.textContent = `Письмо в поддеркжу WB`;
+    ticketButton.addEventListener("click", ticketForWbText);
+    document.querySelector(".apiInfo").append(ticketButton);
+    ul.append(ticketButton);
   }
 
   document.querySelector(".apiInfo").append(ul);
 }
+
+// Текст письма
+function ticketForWbText(event) {
+  event.preventDefault();
+  prompt(
+    "Текст ответа пользователю:",
+    `
+Здравствуйте.
+В API-ключе вашего магазина, у некоторых продаж нет данных о сумме, которую оплатил клиент и нет суммы, которую переведет вам WB за данную продажу.
+Для решения проблемы, вам необходимо обратиться в поддержку wildberries и попросить их скорректировать данные, передаваемые по вашему API-ключу.
+В обращении укажите строку вызова, это позволит быстрее получить от них ответ.
+Текст для обращения в поддержку wildberries предлагаю такой:
+    
+Здравствуйте
+В API-ключе передается не корректная информация о продажах.
+Например у продажи ${saleNull} (поле: saleID) от ${saleNullDade} не указана сумма, которую оплатил клиент, а также не указано значение сумму перевода от WB (поле: forPay). Просьба скорректировать данные и добавить информацию в API-ключ.
+Ответ о том, что данные в аналитических отчетах (в том числе и API) носят промежуточный характер и могут содержать неточную информацию, т.к. являются оперативными и динамически изменяются прошу не писать, поскольку в данных, которые передаются имеется ошибки, в частности не у всех товаров в API-ключе указана сумма покупки и сумма к переводу от WB.
+  
+Строка вызова: ${getAPI()}
+    
+Напишите в поддержку через личный кабинет, раздел "Поддержка NEW" https://seller.wildberries.ru/service-desk-v2/requests/history, тему выберите: "Ошибки в получаемой информации по API"
+`
+  );
+}
+
+// getCardForNull();
+
+// function getCardForNull(selector) {
+//   let allButtonNext = document.querySelectorAll(".forPay_null");
+//   console.log(allButtonNext);
+
+//   for (let button of allButtonNext) {
+//     console.log(button.querySelector(".buttonForPay_next"));
+//     button.addEventListener("click", (event) => {
+//       event.preventDefault();
+
+//       const goto = allButtonNext.hasAttribute("5")
+//         ? anchor.getAttribute("5")
+//         : "body";
+//       // Плавная прокрутка до элемента с id = href у ссылки
+//       document.querySelector(goto).scrollIntoView({
+//         behavior: "smooth",
+//         block: "start",
+//       });
+//     });
+//   }
+// }
+// setTimeout(getCardForNull, 5000);

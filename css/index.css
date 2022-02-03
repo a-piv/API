@@ -133,7 +133,7 @@ button:hover {
   background-color: rgb(255 214 145);
 }
 .forPay_null_text {
-  color: rgb(255 214 145);
+  color: rgb(255, 0, 0);
 }
 
 .doplata_color {
@@ -166,7 +166,7 @@ button:hover {
   color: rgb(92, 179, 11);
 }
 .refund_textColor {
-  color: rgb(255, 64, 64);
+  color: rgb(0, 89, 255);
 }
 
 .secondaryInfo {

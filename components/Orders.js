@@ -162,11 +162,21 @@ function counterAllOrders() {
   // Заказы без артикула
   let listOrdersNotNmId = document.createElement("li");
   if (counterNmIdNull > 0) {
-    listOrdersNotNmId.classList.add("secondaryInfo");
-    listOrdersNotNmId.classList.add("refund_textColor");
-    listOrdersNotNmId.textContent = `Заказов без номера ${counterNmIdNull} шт.`;
+    // listOrdersNotNmId.classList.add("secondaryInfo");
+    // listOrdersNotNmId.classList.add("refund_textColor");
+    // listOrdersNotNmId.textContent = `Заказов без номера ${counterNmIdNull} шт.`;
+    // ul.append(listOrdersNotNmId);
+    // listOrdersNotNmId.addEventListener("click", console.log("0"));
+
+    // Кнопка под фото
+    let listOrdersNotNmId = document.createElement("a");
+    listOrdersNotNmId.href = "#0";
+    let listOrdersNotNmButton = document.createElement("button");
+    listOrdersNotNmButton.classList.add("forPay_null_text");
+    listOrdersNotNmButton.classList.add("secondaryInfo");
+    listOrdersNotNmButton.textContent = `БАГ: Заказов без номера: ${counterNmIdNull}шт`;
+    listOrdersNotNmId.append(listOrdersNotNmButton);
     ul.append(listOrdersNotNmId);
-    listOrdersNotNmId.addEventListener("click", console.log("0"));
   }
 
   document.querySelector(".apiInfo").append(ul);
