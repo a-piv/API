@@ -27,3 +27,13 @@ function dateTime() {
 // dateTime();
 // console.log(new Date());
 // console.log(new Date("2020-09-20"));
+
+// Используется для текста в обращении для поддержки
+function getAPI() {
+  const dateApi = document.querySelector("#dateApi").value;
+  const api = document.querySelector(".inputApi").value;
+
+  const stockURL = `https://suppliers-stats.wildberries.ru/api/v1/supplier/sales?dateFrom=${dateApi}T00:00:00.000Z&flag=${flag}&key=${api}`;
+  console.log(stockURL);
+  return stockURL;
+}

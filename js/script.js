@@ -1,7 +1,7 @@
 const buttonGetStocks = document.querySelector(".buttonGetStocks");
 const buttonGetOrders = document.querySelector(".buttonGetOrders");
 const buttonGetSales = document.querySelector(".buttonGetSales");
-
+let flag = 1;
 const buttonGetIncomes = document.querySelector(".buttonGetIncomes");
 const buttonGetreportDetailByPeriod = document.querySelector(
   ".buttonGetreportDetailByPeriod"
@@ -23,7 +23,6 @@ buttonGetIncomes.addEventListener("click", () => {
 
 //Проверяем флаг
 let flagApi = document.getElementById("flagApi");
-let flag = "1";
 flagApi.addEventListener("click", function (event) {
   if (event.target.checked) {
     return (flag = 1);
@@ -32,17 +31,11 @@ flagApi.addEventListener("click", function (event) {
   }
 });
 
-function getAPI(sale) {
-  const dateApi = document.querySelector("#dateApi").value;
-  const api = document.querySelector(".inputApi").value;
-  const stockURL = `https://suppliers-stats.wildberries.ru/api/v1/supplier/sales?dateFrom=${dateApi}T00:00:00.000Z&flag=${flag}&key=${api}`;
-  return stockURL;
-}
-
 // Рабочая функция которая достаёт API
 function getJson(method) {
   const dateApi = document.querySelector("#dateApi").value;
   const api = document.querySelector(".inputApi").value;
+
   const stockURL = `https://suppliers-stats.wildberries.ru/api/v1/supplier/${method}?dateFrom=${dateApi}T00:00:00.000Z&flag=${flag}&key=${api}`;
   console.log(stockURL);
 
@@ -121,28 +114,27 @@ function createCardStock(api) {
   counterFromClient();
 }
 
-function itogInfoApi(selector, api, date, flag, text) {
-  let list = document.createElement("li");
-  list.classList.add("generalInfo");
-
+function itogInfoApi() {
+  let data = document.querySelector("#dateApi");
   if (flag) {
-    list.textContent = `${text} за ${date}: ${api.length} шт.`;
+    let textDateContent = `За дату: ${data.value}`;
+    return textDateContent;
   } else {
-    list.textContent = `${text} c ${date} по настоящее время: ${api.length} шт.`;
+    let textDateContent = `С ${data.value} по настоящее время`;
+    return textDateContent;
   }
-  selector.append(list);
 }
 
 // Счетчик
-function generalInfoList(name, inWayTo, selector) {
-  // select = document.querySelector(selector);
-  let list = document.createElement("li");
-  list.classList.add("secondaryInfo");
-  list.textContent = `${name}: ${inWayTo}`;
-  selector.append(list);
-  console.log(list);
-  // console.log(list);
-}
+// function generalInfoList(name, inWayTo, selector) {
+//   // select = document.querySelector(selector);
+//   let list = document.createElement("li");
+//   list.classList.add("secondaryInfo");
+//   list.textContent = `${name}: ${inWayTo}`;
+//   selector.append(list);
+//   console.log(list);
+//   // console.log(list);
+// }
 
 // const createCardButton = document.querySelector(".createCardButton");
 // createCardButton.addEventListener("click", createCard);
