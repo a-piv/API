@@ -48,6 +48,8 @@ function getAPI(method) {
 // Промис. Функция, которая возвращает ПРОМИМ (не JSON) для карточек
 function createOrdersCard(data) {
   console.log(data);
+  // Очищаем счётчик
+  counterOrdersNull();
   data.forEach((params, i) => {
     const orders = new Orders(params, i);
     const cardOrdersssss = orders._cardBackgroundOrders();
@@ -57,6 +59,8 @@ function createOrdersCard(data) {
 
 function createSalesCard(data) {
   console.log(data);
+  // Очищаем счётчик
+  counterSalesNull();
   data.forEach((params, i) => {
     const sales = new Sales(params, i);
     const cardSales = sales._cardBackgroundSales();

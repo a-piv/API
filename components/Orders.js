@@ -190,6 +190,4 @@ function counterAllOrders() {
   }
 
   document.querySelector(".apiInfo").append(ul);
-
-  counterOrdersNull();
 }

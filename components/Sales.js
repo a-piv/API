@@ -296,7 +296,7 @@ function counterAllSales() {
 
   document.querySelector(".apiInfo").append(ul);
 
-  counterSalesNull();
+  // counterSalesNull();
 }
 
 // Текст письма
@@ -323,10 +323,18 @@ ${itogInfoApi()} продаж с подобной проблемой ${countNull
 Напишите в поддержку через личный кабинет, раздел "Поддержка NEW" https://seller.wildberries.ru/service-desk-v2/requests/history, тему выберите: "Ошибки в получаемой информации по API"
 `
   );
-
-  itogInfoApi();
 }
 
+function itogInfoApi(params) {
+  let date = document.querySelector("#dateApi").value;
+  let outDaye = "";
+  if (flag) {
+    outDaye = `За ${date} число `;
+  } else {
+    outDaye = `С ${date} число по настоящее время `;
+  }
+  return outDaye;
+}
 // getCardForNull();
 
 // function getCardForNull(selector) {
