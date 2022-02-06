@@ -5,6 +5,15 @@ let summOrders = 0;
 let summOrdersCansel = 0;
 let counterNmIdNull = 0;
 
+function counterOrdersNull() {
+  counterOrdersAll = 0;
+  counterOrdersOk = 0;
+  counterOrdersCansel = 0;
+  summOrders = 0;
+  summOrdersCansel = 0;
+  counterNmIdNull = 0;
+}
+
 class Orders {
   constructor(param, i) {
     this.i = i + 1;
@@ -129,6 +138,7 @@ class Orders {
 }
 
 function counterAllOrders() {
+  console.log("Вызван метод для вываода общих данных");
   let ul = document.createElement("ul");
   ul.classList.add("apiInfo_all");
   let listGeneral = document.createElement("li");
@@ -160,8 +170,8 @@ function counterAllOrders() {
   }
 
   // Заказы без артикула
-  let listOrdersNotNmId = document.createElement("li");
   if (counterNmIdNull > 0) {
+    // let listOrdersNotNmId = document.createElement("li");
     // listOrdersNotNmId.classList.add("secondaryInfo");
     // listOrdersNotNmId.classList.add("refund_textColor");
     // listOrdersNotNmId.textContent = `Заказов без номера ${counterNmIdNull} шт.`;
@@ -180,4 +190,6 @@ function counterAllOrders() {
   }
 
   document.querySelector(".apiInfo").append(ul);
+
+  counterOrdersNull();
 }

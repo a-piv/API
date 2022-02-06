@@ -10,9 +10,24 @@ let summRefund = 0;
 let summDoplata = 0;
 let countNullDoplata = 0;
 let countNull = 0;
-
 let saleNull = 0;
 let saleNullDade = 0;
+
+function counterSalesNull() {
+  counterSalesAll = 0;
+  counterSales = 0;
+  counterRefund = 0;
+  counterDoplata = 0;
+  counterB_stornoVozvrat = 0;
+  counterA_stornoSale = 0;
+  summSales = 0;
+  summRefund = 0;
+  summDoplata = 0;
+  countNullDoplata = 0;
+  countNull = 0;
+  saleNull = 0;
+  saleNullDade = 0;
+}
 
 class Sales {
   constructor(APISales, i) {
@@ -281,9 +296,7 @@ function counterAllSales() {
 
   document.querySelector(".apiInfo").append(ul);
 
-  let ppprr = getAPI();
-  console.log(ppprr.dateApi);
-  console.log(flagApi);
+  counterSalesNull();
 }
 
 // Текст письма

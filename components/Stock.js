@@ -1,6 +1,18 @@
 let inWayToClientCounter = 0;
 let inWayFromClientCounter = 0;
 
+// Всего товаров для продиж:
+let counterAllQuantityProduct = 0;
+// На общую сумму:
+let counterAllQuantitySumm = 0;
+
+function counterStockNull() {
+  inWayToClientCounter = 0;
+  inWayFromClientCounter = 0;
+  counterAllQuantityProduct = 0;
+  counterAllQuantitySumm = 0;
+}
+
 class Stock {
   constructor(apiStocks, i) {
     this.i = i + 1;
@@ -61,6 +73,7 @@ class Stock {
     this.cardStocks.querySelector(".techSizeApi").textContent = this.techSize;
     this.cardStocks.querySelector(".barcodeApi").textContent = this.barcode;
     this.cardStocks.querySelector(".quantityApi").textContent = this.quantity;
+
     this.cardStocks.querySelector(".isSupplyApi").textContent = this.isSupply;
     this.cardStocks.querySelector(".isRealizationApi").textContent =
       this.isRealization;
@@ -97,21 +110,47 @@ class Stock {
     li.classList.add("stocks_color");
     li.append(this.CardStocksLi);
     document.querySelector(".card_list").append(li);
+    //Считаем общее кол-во товара для продажи
+    counterAllQuantityProduct = counterAllQuantityProduct + this.quantity;
+    console.log(counterAllQuantityProduct);
+    //Считаем общую сумму товаров для продажи
+    if (this.quantity != 0) {
+      let summ = this.quantity * getDiscount(this.Price, this.Discount);
+      counterAllQuantitySumm = counterAllQuantitySumm + summ;
+      console.log(summ);
+      console.log(counterAllQuantitySumm);
+    }
+    if (this.techSize == 0) {
+      this.cardStocks.querySelector(".techSize").remove();
+    }
   }
 }
 function counterFromClient() {
   let ul = document.createElement("ul");
   ul.classList.add("apiInfo_all");
+
+  //   let counterAllQuantityProduct = 0;
+  // // На общую сумму:
+  // let counterAllQuantitySumm = 0;
+
+  let allQuantitySale = document.createElement("li");
+  allQuantitySale.classList.add("generalInfo");
+  allQuantitySale.textContent = `За  ${
+    document.querySelector("#dateApi").value
+  } кол-во товаров (доступных для продажи)  ${counterAllQuantityProduct}шт. На общую сумму ${counterAllQuantitySumm} руб. (без учёта СПП)`;
+  ul.append(allQuantitySale);
+
   let listToClient = document.createElement("li");
-  listToClient.classList.add("generalInfo");
+  listToClient.classList.add("secondaryInfo");
   listToClient.textContent = `Едет к клиенту: ${inWayToClientCounter}шт.`;
   ul.append(listToClient);
 
   let listFromClient = document.createElement("li");
-  listFromClient.classList.add("generalInfo");
+  listFromClient.classList.add("secondaryInfo");
   listFromClient.textContent = `Едет от клиента: ${inWayFromClientCounter}шт.`;
   ul.append(listFromClient);
 
   document.querySelector(".apiInfo").append(ul);
-  console.log(ul);
+
+  counterStockNull();
 }

@@ -1,3 +1,5 @@
+let counterincomeId = 0;
+
 class Incomes {
   constructor(APIincomes) {
     (this.incomeId = APIincomes.incomeId),
@@ -15,20 +17,43 @@ class Incomes {
       (this.status = APIincomes.status);
   }
 
-  // Возвращает карточку поставки
+  // Создеём шаблокн карточки с рамкой
   _getTemplateIncomes() {
     const templateIncomes = document
       .querySelector(".templateCard-incomes")
       .content.querySelector(".fieldsetCard")
       .cloneNode(true);
+    templateIncomes.querySelector(".numberIncomes").textContent = this.incomeId;
+    templateIncomes.querySelector(".dataIncomes").textContent = this.date;
+    counterincomeId = this.incomeId;
     return templateIncomes;
   }
 
-  // Создаём карточку с fieldset
-  _generateCardIncomes() {
-    this._element = this._getTemplateIncomes();
-    this._element.querySelector(".numberIncomes").textContent = this.incomeId;
-    this._element.querySelector(".dataIncomes").textContent = this.date;
+  // Создаём шаблон карточи без внешней рамки
+  _getTemplateIncomesNotframe() {
+    const templateCardIncomes = document
+      .querySelector(".templateCard-incomes")
+      .content.querySelector(".card_li")
+      .cloneNode(true);
+    console.log(templateCardIncomes);
+    counterincomeId = this.incomeId;
+    return templateCardIncomes;
+  }
+
+  // Создаём отдельно fieldset
+  _generateCardIncomes(paramFrame) {
+    console.log(paramFrame);
+    if (paramFrame == "frame") {
+      this._element = this._getTemplateIncomes();
+    } else {
+      this._element = this._getTemplateIncomesNotframe();
+    }
+    // this._element = this._getTemplateIncomes();
+
+    // this._element = this._getTemplateIncomesNotframe();
+
+    // this._element.querySelector(".numberIncomes").textContent = this.incomeId;
+    // this._element.querySelector(".dataIncomes").textContent = this.date;
     this._element.querySelector(".photo-card_small").src = imageCrеate(
       this.nmId
     );
@@ -50,8 +75,6 @@ class Incomes {
     return this._element;
   }
 }
-
-// ZGQ0YzNjZjItYTVmNC00YWFlLWJhNGYtOGU2OTU3YWFmOTQ5
 
 // Счетчик
 function generalInfoList(name, inWayTo, selector) {

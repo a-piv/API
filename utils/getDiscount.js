@@ -11,29 +11,18 @@ function getDiscount(price, discount) {
   return Math.round(price - (price / 100) * discount);
 }
 
+function dateZero(d) {
+  return d < 10 ? "0" + d : d;
+}
 // Указать вчерашнюю дату
 function dateTime() {
-  let date = document.getElementById("dateTime");
-  //  console.log(new Date());
-  console.log(date.value);
-  date.value = new Date();
-  console.log(date);
-  // date.set;
-
-  // document.getElementById(
-  //   "dateTime"
-  // ).value = `${today.getFullYear()}-${today.getMonth()}-${0}${today.getDate()}`;
+  let dateFull = new Date();
+  let FullYear = dateFull.getFullYear();
+  let Month = dateZero(dateFull.getMonth() + 1);
+  let date = dateZero(dateFull.getDate() - 1);
+  let dateFormat = `${FullYear}-${Month}-${date}`;
+  return dateFormat;
 }
-// dateTime();
-// console.log(new Date());
-// console.log(new Date("2020-09-20"));
 
-// Используется для текста в обращении для поддержки
-function getAPI() {
-  const dateApi = document.querySelector("#dateApi").value;
-  const api = document.querySelector(".inputApi").value;
-
-  const stockURL = `https://suppliers-stats.wildberries.ru/api/v1/supplier/sales?dateFrom=${dateApi}T00:00:00.000Z&flag=${flag}&key=${api}`;
-  console.log(stockURL);
-  return stockURL;
-}
+//Устанавливаем вчерашнюю дату
+document.querySelector("#dateApi").value = dateTime();
