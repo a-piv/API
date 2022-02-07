@@ -14,6 +14,7 @@ function getDiscount(price, discount) {
 function dateZero(d) {
   return d < 10 ? "0" + d : d;
 }
+
 // Указать вчерашнюю дату
 function dateTime() {
   let dateFull = new Date();

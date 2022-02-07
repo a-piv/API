@@ -39,7 +39,8 @@ flagApi.addEventListener("click", function (event) {
 // Получаем строку вызова. Также используется для текста в обращении для поддержки
 function getAPI(method) {
   const dateApi = document.querySelector("#dateApi").value;
-  const api = document.querySelector(".inputApi").value;
+  const apiClient = document.querySelector(".inputApi").value;
+  api = apiClient.trim();
   const stockURL = `https://suppliers-stats.wildberries.ru/api/v1/supplier/${method}?dateFrom=${dateApi}T00:00:00.000Z&flag=${flag}&key=${api}`;
   console.log(stockURL);
   return stockURL;

@@ -284,6 +284,12 @@ function counterAllSales() {
     forPayHref.append(forPayNullButton);
     ul.append(forPayHref);
 
+    // forPayNullButton.addEventListener("click", (event) => {
+    //   event.preventDefault();
+    //   // forPayHref.href = "#0";
+    //   // document.location.hash = "#" + 0;
+    // });
+
     // Создаём кнопку для отправки письма
     let ticketButton = document.createElement("button");
     ticketButton.classList.add("forPay_null_text");
