@@ -49,6 +49,12 @@ function getAPI(method) {
 // Промис. Функция, которая возвращает ПРОМИМ (не JSON) для карточек
 function createOrdersCard(data) {
   console.log(data);
+  if (data.length > 1000) {
+    let ll = document.createElement("li");
+    ll.textContent = "Товаро больше 1000, придётся подождать";
+    console.log(ll);
+    document.querySelector(".apiInfo_all").append(ll);
+  }
   // Очищаем счётчик
   counterOrdersNull();
   data.forEach((params, i) => {
