@@ -101,7 +101,7 @@ class Orders {
   }
 
   _cardBackgroundOrders() {
-    let cardOrdersLi = this._generateCardOrders();
+    this.cardOrdersLi = this._generateCardOrders();
     let li = document.createElement("li");
     li.classList.add("card_li");
     counterOrdersAll++;
@@ -119,6 +119,11 @@ class Orders {
       li.classList.add("refund_color");
       counterOrdersCansel++;
       summOrdersCansel = summOrdersCansel + this.ordersSumm;
+      // Надпись "Отменён" под фото
+      let canselText = document.createElement("div");
+      canselText.textContent = "Отменён";
+      // console.log(this.cardOrdersLi.querySelector(".photo-card"));
+      this.cardOrdersLi.querySelector(".photo-card").append(canselText);
     } else {
       li.classList.add("orders_color");
       this._cardOrders.querySelector(".isCancel").remove();
@@ -132,7 +137,7 @@ class Orders {
       this._cardOrders.querySelector(".techSize").remove();
     }
 
-    li.append(cardOrdersLi);
+    li.append(this.cardOrdersLi);
     document.querySelector(".card_list").append(li);
   }
 }
