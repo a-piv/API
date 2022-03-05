@@ -8,6 +8,7 @@ let counterA_stornoSale = 0;
 let summSales = 0;
 let summRefund = 0;
 let summDoplata = 0;
+let summForpay = 0;
 let countNullDoplata = 0;
 let countNull = 0;
 let saleNull = 0;
@@ -18,6 +19,7 @@ function counterSalesNull() {
   counterSales = 0;
   counterRefund = 0;
   counterDoplata = 0;
+  summForpay = 0;
   counterB_stornoVozvrat = 0;
   counterA_stornoSale = 0;
   summSales = 0;
@@ -101,7 +103,12 @@ class Sales {
     this._element.querySelector(".incomeIDApi").textContent = this.incomeID;
     this._element.querySelector(".isRealizationApi").textContent =
       this.isRealization;
+
     this._element.querySelector(".IsStornoApi").textContent = this.IsStorno;
+    if (this.IsStorno == 0) {
+      this._element.querySelector(".IsStorno").remove();
+    }
+
     this._element.querySelector(".isSupplyApi").textContent = this.isSupply;
     this._element.querySelector(".lastChangeDateApi").textContent =
       this.lastChangeDate;
@@ -149,6 +156,19 @@ class Sales {
       li.classList.add("sales_color");
       counterSales = counterSales + this.quantity;
       summSales = summSales + this.finishedPrice;
+      summForpay = summForpay + this.forPay;
+
+      // Добавляем рассчёт коммиссии WB в рублях и процентах
+      let comissionWB = this._cardSalesLi.querySelector(".price-card");
+      let crateP = document.createElement("p");
+      // crateP.classList.add("afterRub");
+      crateP.classList.add("formula");
+      crateP.textContent = `Комиссия WB: ${(
+        this.finishedPrice - this.forPay
+      ).toFixed(2)} руб. (${Math.round(
+        100 - this.forPay / (this.finishedPrice / 100)
+      )}%)`;
+      comissionWB.append(crateP);
     } else if (saleSymbol == "R") {
       li.classList.add("refund_color");
       counterRefund = counterRefund - this.quantity;
@@ -182,7 +202,7 @@ class Sales {
       saleNullDade = this.date;
 
       let buttonHref = document.createElement("a");
-      buttonHref.href = `#${countNull + 1}`;
+      buttonHref.href = `#${countNull}`;
       let buttonNext = document.createElement("Button");
       buttonNext.classList.add("buttonForPay_next");
       buttonNext.textContent = "Следующий где 0руб.";
@@ -224,7 +244,7 @@ function counterAllSales() {
     listSales.classList.add("sales_textColor");
     listSales.textContent = `Всего продаж: ${counterSales} шт. на сумму ${summSales.toFixed(
       2
-    )} руб.`;
+    )} руб. Общая сумма к перечислению ${summForpay.toFixed(2)}`;
     ul.append(listSales);
   }
 

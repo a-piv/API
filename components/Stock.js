@@ -112,13 +112,13 @@ class Stock {
     document.querySelector(".card_list").append(li);
     //Считаем общее кол-во товара для продажи
     counterAllQuantityProduct = counterAllQuantityProduct + this.quantity;
-    console.log(counterAllQuantityProduct);
+    // console.log(counterAllQuantityProduct);
     //Считаем общую сумму товаров для продажи
     if (this.quantity != 0) {
       let summ = this.quantity * getDiscount(this.Price, this.Discount);
       counterAllQuantitySumm = counterAllQuantitySumm + summ;
-      console.log(summ);
-      console.log(counterAllQuantitySumm);
+      // console.log(summ);
+      // console.log(counterAllQuantitySumm);
     }
     if (this.techSize == 0) {
       this.cardStocks.querySelector(".techSize").remove();
