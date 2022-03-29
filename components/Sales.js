@@ -13,6 +13,8 @@ let countNullDoplata = 0;
 let countNull = 0;
 let saleNull = 0;
 let saleNullDade = 0;
+let stornoSale = 0;
+let stornoRefund = 0;
 
 function counterSalesNull() {
   counterSalesAll = 0;
@@ -29,6 +31,8 @@ function counterSalesNull() {
   countNull = 0;
   saleNull = 0;
   saleNullDade = 0;
+  stornoSale = 0;
+  stornoRefund = 0;
 }
 
 class Sales {
@@ -185,9 +189,21 @@ class Sales {
     } else if (saleSymbol == "B") {
       li.classList.add("stornoRefund_color");
       counterB_stornoVozvrat++;
+      stornoRefund = stornoRefund + this.finishedPrice;
     } else if (saleSymbol == "A") {
       li.classList.add("stornoSales_color");
       counterA_stornoSale++;
+      stornoSale = stornoSale + this.finishedPrice;
+
+      // let stornoRefund = 0;
+      let buttonHref = document.createElement("a");
+      // buttonHref.href = `#${countNull}`;
+      let buttonNext = document.createElement("Button");
+      buttonNext.classList.add("buttonForPay_next");
+      buttonNext.textContent = "Сторно продаж";
+      buttonHref.append(buttonNext);
+      let buttonSelector = this._element.querySelector(".photo-card");
+      buttonSelector.append(buttonHref);
     }
 
     if (this.techSize == 0) {
@@ -211,6 +227,9 @@ class Sales {
 
       let buttonSelector = this._element.querySelector(".photo-card");
       buttonSelector.append(buttonHref);
+      console.log(`Договор реализации: ${this.isRealization}`);
+    } else if (this.isRealization === "true" && saleSymbol == "S") {
+      console.log(`Продажа по договору поставки, сумма ${this.forPay}`);
     }
 
     // Кол-во доплат, где сумму равна нулю
@@ -277,7 +296,7 @@ function counterAllSales() {
   if (counterB_stornoVozvrat > 0) {
     let listStornoVozvrat = document.createElement("li");
     listStornoVozvrat.classList.add("secondaryInfo");
-    listStornoVozvrat.textContent = `Всего стороно возвратов: ${counterB_stornoVozvrat}шт.`;
+    listStornoVozvrat.textContent = `Всего стороно возвратов: ${counterB_stornoVozvrat}шт. на сумму ${stornoRefund} руб.`;
     ul.append(listStornoVozvrat);
   }
 
@@ -291,8 +310,11 @@ function counterAllSales() {
   if (counterA_stornoSale > 0) {
     let listStornoSale = document.createElement("li");
     listStornoSale.classList.add("secondaryInfo");
-    listStornoSale.textContent = `Всего стороно продаж: ${counterB_stornoVozvrat}шт.`;
+    listStornoSale.textContent = `Всего стороно продаж: ${counterA_stornoSale}шт. На сумму ${stornoSale} руб.`;
     ul.append(listStornoSale);
+
+    // counterA_stornoSale++;
+    // stornoSale = stornoSale + this.finishedPrice;
   }
 
   //Продажи без суммы forPay =0
@@ -335,11 +357,9 @@ function ticketForWbText(event) {
   prompt(
     "Текст ответа пользователю:",
     `Здравствуйте.
-В API-ключе вашего магазина, у некоторых продаж нет данных о сумме, которую оплатил клиент и нет суммы, которую переведет вам WB за данную продажу.
-Для решения проблемы, рекомендуем обратиться в поддержку wildberries и попросить их скорректировать данные в API-ключе вашего магазина.
+Проверили данные вашего магазина. В API-ключе у некоторых продаж нет данных о сумме, которую оплатил клиент и нет суммы, которую переведет вам WB за данную продажу.
+Для решения проблемы, рекомендуем обратиться в поддержку wildberries https://seller.wildberries.ru/service-desk-v2/requests/history (тему выберите: "Ошибки в получаемой информации по API") и попросить их скорректировать данные в API-ключе вашего магазина.
 В обращении укажите строку вызова, это позволит быстрее получить от них ответ.
-
-Напишите в поддержку через личный кабинет, раздел "Поддержка NEW" https://seller.wildberries.ru/service-desk-v2/requests/history, тему выберите: "Ошибки в получаемой информации по API"
 Текст для обращения в поддержку wildberries предлагаю такой:
     
 Здравствуйте
@@ -349,7 +369,7 @@ ${itogInfoApi()} продаж с подобной проблемой ${countNull
 Просьба скорректировать данные и добавить информацию в API-ключ.
 Ответ о том, что данные в аналитических отчетах (в том числе и API) носят промежуточный характер и могут содержать неточную информацию, т.к. являются оперативными и динамически изменяются прошу не писать, поскольку в данных, которые передаются имеется ошибки, в частности не у всех товаров в API-ключе указана сумма покупки и сумма к переводу от WB.
   
-Строка вызова: ${getAPI()}`
+Строка вызова: ${getAPI("sales")}`
   );
 }
 
