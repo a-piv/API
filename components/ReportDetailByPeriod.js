@@ -1,6 +1,6 @@
 class ReportDetailByPeriod {
-  constructor(APIReportDetailByPeriod) {
-    console.log("ds");
+  constructor(APIReportDetailByPeriod, i) {
+    this.i = i + 1;
     this.realizationreport_id = APIReportDetailByPeriod.realizationreport_id;
     this.suppliercontract_code = APIReportDetailByPeriod.suppliercontract_code;
     this.rid = APIReportDetailByPeriod.rid;
