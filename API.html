@@ -44,6 +44,10 @@
               class="flagApiClass"
             />
           </p>
+          <p class="formGetApi">
+            <label for="dateApiToHeader">Дата окончания (для "Отчета о продажах по реализации"): </label>
+            <input type="date" name="dateToApi" value="2022-07-08" id="dateToApi" />
+          </p>
         </form>
         <div class="buttons-get">
           <p class="formGetApi">
@@ -66,11 +70,11 @@
               Получить "Поставки"
             </button>
           </p>
-          <!-- <p class="formGetApi">
+          <p class="formGetApi">
             <button type="submit" class="buttonGetreportDetailByPeriod button">
               Получить "Отчет о продажах по реализации"
             </button>
-          </p> -->
+          </p>
           <!-- 
           <p class="formGetApi">
             <button type="submit" class="buttonGetTest button">
@@ -371,6 +375,8 @@
           </div>
         </template>
 
+
+
         <template class="templateCard-orders">
           <div class="card_stock">
             <div class="number-card"></div>
@@ -444,6 +450,75 @@
 
 
 
+        <template class="templateCard-reportDetailByPeriod">
+          <div class="card_stock">
+            <div class="number-card"></div>
+              <div class="photo-card">
+                <a href="" target="_blank" class="photo-card-href">
+                <img
+                  class="photo-card_small"
+                  src="https://images.unsplash.com/photo-1636262987985-b7dd44f5fffa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
+                  alt=""
+                /></a>
+              </div>
+
+                <div class="name-card">
+                  <p class='realizationreport_id'>Номер отчета:<b class='realizationreport_idApi'>realizationreport_id</b></p>
+                  <p class='suppliercontract_code'>Договор:<b class='suppliercontract_codeApi'>suppliercontract_code</b></p>
+                  <p class='rid'>Уникальный идентификатор позиции заказа:<b class='ridApi'>rid</b></p>
+                  <p class='rr_dt'>Дата операции. Присылается с явным указанием часового пояса.:<b class='rr_dtApi'>rr_dt</b></p>
+                  <p class='rrd_id'>Номер строки:<b class='rrd_idApi'>rrd_id</b></p>
+                  <p class='gi_id'>Номер поставки:<b class='gi_idApi'>gi_id</b></p>
+                  <p class='subject_name'>Предмет:<b class='subject_nameApi'>subject_name</b></p>
+                  <p class='nm_id'>Артикул:<b class='nm_idApi'>NM_id</b></p>
+                  <p class='brand_name'>Бренд:<b class='brand_nameApi'>brand_name</b></p>
+                  <p class='sa_name'>Артикул поставщика:<b class='sa_nameApi'>sa_name</b></p>
+                  <p class='ts_name'>Размер:<b class='ts_nameApi'>ts_name</b></p>
+                  <p class='barcode'>Бар-код:<b class='barcodeApi'>barcode</b></p>
+                  <p class='doc_type_name'>Тип документа:<b class='doc_type_nameApi'>doc_type_name</b></p>
+                  <p class='quantity'>Количество:<b class='quantityApi'>quantity</b></p>
+                  <p class='retail_price'>Цена розичная:<b class='retail_priceApi'>retail_price</b></p>
+                  <p class='retail_amount'>Сумма продаж (возвратов):<b class='retail_amountApi'>retail_amount</b></p>
+                  <p class='sale_percent'>Согласованная скидка:<b class='sale_percentApi'>sale_percent</b></p>
+                  <p class='commission_percent'>Процент комиссии:<b class='commission_percentApi'>commission_percent</b></p>
+                  <p class='office_name'>Склад:<b class='office_nameApi'>office_name</b></p>
+                  <p class='supplier_oper_name'>Обоснование для оплаты:<b class='supplier_oper_nameApi'>supplier_oper_name</b></p>
+                  <p class='order_dt'>Дата заказа. Присылается с явным указанием часового пояса.:<b class='order_dtApi'>order_dt</b></p>
+                  <p class='sale_dt'>Дата продажи. Присылается с явным указанием часового пояса.:<b class='sale_dtApi'>sale_dt</b></p>
+                  <p class='shk_id'>Штрих-код:<b class='shk_idApi'>shk_id</b></p>
+                  <p class='retail_price_withdisc_rub'>Цена розничная с учетом согласованной скидки:<b class='retail_price_withdisc_rubApi'>retail_price_withdisc_rub</b></p>
+                  <p class='delivery_amount'>Количество доставок:<b class='delivery_amountApi'>delivery_amount</b></p>
+                  <p class='return_amount'>Количество возвратов:<b class='return_amountApi'>return_amount</b></p>
+                  <p class='delivery_rub'>Стоимость логистики:<b class='delivery_rubApi'>delivery_rub</b></p>
+                  <p class='gi_box_type_name'>Тип коробов:<b class='gi_box_type_nameApi'>gi_box_type_name</b></p>
+                  <p class='product_discount_for_report'>Согласованный продуктовый дисконт:<b class='product_discount_for_reportApi'>product_discount_for_report</b></p>
+                  <p class='supplier_promo'>Промокод:<b class='supplier_promoApi'>supplier_promo</b></p>
+                  <p class='ppvz_spp_prc'>Скидка постоянного покупателя:<b class='ppvz_spp_prcApi'>ppvz_spp_prc</b></p>
+                  <p class='ppvz_kvw_prc_base'>Размер кВВ без НДС, % базовый:<b class='ppvz_kvw_prc_baseApi'>ppvz_kvw_prc_base</b></p>
+                  <p class='ppvz_kvw_prc'>Итоговый кВВ без НДС, %:<b class='ppvz_kvw_prcApi'>ppvz_kvw_prc</b></p>
+                  <p class='ppvz_sales_commission'>Вознаграждение с продаж до вычета услуг поверенного, без НДС:<b class='ppvz_sales_commissionApi'>ppvz_sales_commission</b></p>
+                  <p class='ppvz_for_pay'>К перечислению продавцу за реализованный товар:<b class='ppvz_for_payApi'>ppvz_for_pay</b></p>
+                  <p class='ppvz_reward'>Возмещение расходов услуг поверенного:<b class='ppvz_rewardApi'>ppvz_reward</b></p>
+                  <p class='ppvz_vw'>Вознаграждение WB без НДС:<b class='ppvz_vwApi'>ppvz_vw</b></p>
+                  <p class='ppvz_vw_nds'>НДС с вознаграждения WB:<b class='ppvz_vw_ndsApi'>ppvz_vw_nds</b></p>
+                  <p class='ppvz_office_id'>Номер офиса:<b class='ppvz_office_idApi'>ppvz_office_id</b></p>
+                  <p class='ppvz_office_name'>Наименование офиса доставки:<b class='ppvz_office_nameApi'>ppvz_office_name</b></p>
+                  <p class='ppvz_supplier_id'>Номер партнера:<b class='ppvz_supplier_idApi'>ppvz_supplier_id</b></p>
+                  <p class='ppvz_supplier_name'>Партнер:<b class='ppvz_supplier_nameApi'>ppvz_supplier_name</b></p>
+                  <p class='ppvz_inn'>ИНН партнера:<b class='ppvz_innApi'>ppvz_inn</b></p>
+                  <p class='declaration_number'>Номер таможенной декларации:<b class='declaration_numberApi'>declaration_number</b></p>
+                  <p class='sticker_id'>Цифровое значение стикера, который клеится на товар в процессе сборки заказа по системе Маркетплейс.:<b class='sticker_idApi'>sticker_id</b></p>
+                  <p class='site_country'>Страна продажи:<b class='site_countryApi'>site_country</b></p>
+                  <p class='penalty'>Штрафы:<b class='penaltyApi'>penalty</b></p>
+                  <p class='additional_payment'>Доплаты:<b class='additional_paymentApi'>additional_payment</b></p>
+                  <p class='bonus_type_name'>Обоснование штрафов и доплат:<b class='bonus_type_nameApi'>bonus_type_name</b></p>
+                </div>
+          </div>
+        </template>
+
+
+
+
                   <!-- Все поставки -->
         <template class="templateCard-incomes">
           
@@ -507,6 +582,8 @@
       <script src="./components/Sales.js"></script>
       <script src="./components/Orders.js"></script>
       <script src="./components/Stock.js"></script>
+      <script src="./components/Stock.js"></script>
+      <script src="./components/ReportDetailByPeriod.js"></script>
       <script src="./utils/getDiscount.js"></script>
     </div>
   </body>

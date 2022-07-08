@@ -7,13 +7,13 @@ const buttonGetreportDetailByPeriod = document.querySelector(
   ".buttonGetreportDetailByPeriod"
 );
 
-buttonGetOrders.addEventListener("click", () => {
-  getApiJson("orders", createOrdersCard);
-});
-
 buttonGetStocks.addEventListener("click", () => {
   getApiJson("stocks", createStocksCard);
   // getJson("stocks");
+});
+
+buttonGetOrders.addEventListener("click", () => {
+  getApiJson("orders", createOrdersCard);
 });
 
 buttonGetSales.addEventListener("click", () => {
@@ -21,10 +21,26 @@ buttonGetSales.addEventListener("click", () => {
   // getJson("sales");
 });
 
+buttonGetreportDetailByPeriod.addEventListener("click", () => {
+  getApiJson("reportDetailByPeriod", createReportCard);
+  // getJson("sales");
+});
+
 buttonGetIncomes.addEventListener("click", () => {
   getApiJson("incomes", createIncomesCard);
   // getJson("incomes");
 });
+
+function createReportCard(data) {
+  console.log(data);
+  // Очищаем счётчик
+  data.forEach((params, i) => {
+    const reportCard = new ReportDetailByPeriod(params, i);
+    const cardReportCard = reportCard._cardBackgroundReport();
+    console.log(reportCard);
+  });
+  // counterAllSales();
+}
 
 //Проверяем флаг
 let flagApi = document.getElementById("flagApi");
@@ -40,8 +56,9 @@ flagApi.addEventListener("click", function (event) {
 function getAPI(method) {
   const dateApi = document.querySelector("#dateApi").value;
   const apiClient = document.querySelector(".inputApi").value;
+  const dateToApi = document.querySelector("#dateToApi").value;
   api = apiClient.trim();
-  const stockURL = `https://suppliers-stats.wildberries.ru/api/v1/supplier/${method}?dateFrom=${dateApi}T00:00:00.000Z&flag=${flag}&key=${api}`;
+  const stockURL = `https://suppliers-stats.wildberries.ru/api/v1/supplier/${method}?dateFrom=${dateApi}T00:00:00.000Z&dateTo=${dateToApi}&flag=${flag}&key=${api}`;
   console.log(stockURL);
   return stockURL;
 }
