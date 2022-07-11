@@ -43,7 +43,7 @@ class Sales {
       (this.category = APISales.category),
       (this.lastChangeDate = APISales.lastChangeDate),
       (this.nmId = APISales.nmId),
-      (this.quantity = APISales.quantity),
+      // (this.quantity = APISales.quantity),
       (this.subject = APISales.subject),
       (this.supplierArticle = APISales.supplierArticle),
       (this.techSize = APISales.techSize),
@@ -60,14 +60,15 @@ class Sales {
       (this.isSupply = APISales.isSupply),
       (this.oblastOkrugName = APISales.oblastOkrugName),
       (this.odid = APISales.odid),
-      (this.orderId = APISales.orderId),
+      (this.sticker = APISales.sticker),
+      // (this.orderId = APISales.orderId),
       (this.priceWithDisc = APISales.priceWithDisc),
       (this.promoCodeDiscount = APISales.promoCodeDiscount),
       (this.regionName = APISales.regionName),
       (this.saleID = APISales.saleID),
       (this.spp = APISales.spp),
-      (this.totalPrice = APISales.totalPrice),
-      (this.number = APISales.number);
+      (this.totalPrice = APISales.totalPrice);
+    // (this.number = APISales.number);
   }
 
   _getTemplateSales() {
@@ -120,12 +121,13 @@ class Sales {
     this._element.querySelector(".oblastOkrugNameApi").textContent =
       this.oblastOkrugName;
     this._element.querySelector(".odidApi").textContent = this.odid;
-    this._element.querySelector(".orderIdApi").textContent = this.orderId;
+    // this._element.querySelector(".orderIdApi").textContent = this.orderId;
+    this._element.querySelector(".stickerApi").textContent = this.sticker;
     this._element.querySelector(".priceWithDiscApi").textContent =
       this.priceWithDisc;
     this._element.querySelector(".promoCodeDiscountApi").textContent =
       this.promoCodeDiscount;
-    this._element.querySelector(".quantityApi").textContent = this.quantity;
+    // this._element.querySelector(".quantityApi").textContent = this.quantity;
     this._element.querySelector(".regionNameApi").textContent = this.regionName;
     this._element.querySelector(".saleIDApi").textContent = this.saleID;
     this._element.querySelector(".sppApi").textContent = this.spp;
@@ -136,7 +138,7 @@ class Sales {
     this._element.querySelector(".totalPriceApi").textContent = this.totalPrice;
     this._element.querySelector(".warehouseNameApi").textContent =
       this.warehouseName;
-    this._element.querySelector(".numberApi").textContent = this.number;
+    // this._element.querySelector(".numberApi").textContent = this.number;
 
     // Не задействованы параметры из апи:
     // SCCode: "";
@@ -158,7 +160,7 @@ class Sales {
     counterSalesAll++;
     if (saleSymbol == "S" && this.forPay != 0) {
       li.classList.add("sales_color");
-      counterSales = counterSales + this.quantity;
+      counterSales = counterSales + 1;
       summSales = summSales + this.finishedPrice;
       summForpay = summForpay + this.forPay;
 
@@ -175,8 +177,13 @@ class Sales {
       comissionWB.append(crateP);
     } else if (saleSymbol == "R") {
       li.classList.add("refund_color");
-      counterRefund = counterRefund - this.quantity;
+      counterRefund = counterRefund + 1;
+      // counterRefund = 100;
+      console.log(counterRefund);
+
       summRefund = summRefund - this.finishedPrice;
+      console.log(counterRefund);
+      console.log(this.finishedPrice);
       // summRefund = 0;
       // Надпись "Возврат" под фото
       let returnText = document.createElement("div");
@@ -270,6 +277,7 @@ function counterAllSales() {
 
   let listRefund = document.createElement("li");
   if (counterRefund > 0) {
+    console.log("counterRefund");
     listRefund.classList.add("secondaryInfo");
     listRefund.classList.add("refund_textColor");
     listRefund.textContent = `Всего возвратов: ${counterRefund} шт. на сумму ${summRefund.toFixed(

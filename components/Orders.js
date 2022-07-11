@@ -17,13 +17,13 @@ function counterOrdersNull() {
 class Orders {
   constructor(param, i) {
     this.i = i + 1;
-    this.number = param.number;
+    // this.number = param.number;
     this.date = param.date;
     this.lastChangeDate = param.lastChangeDate;
     this.supplierArticle = param.supplierArticle;
     this.techSize = param.techSize;
     this.barcode = param.barcode;
-    this.quantity = param.quantity;
+    // this.quantity = param.quantity;
     this.totalPrice = param.totalPrice;
     this.discountPercent = param.discountPercent;
     this.warehouseName = param.warehouseName;
@@ -37,6 +37,7 @@ class Orders {
     this.isCancel = param.isCancel;
     this.cancel_dt = param.cancel_dt;
     this.gNumber = param.gNumber;
+    this.sticker = param.sticker;
   }
 
   _getTemplateOrders() {
@@ -62,7 +63,7 @@ class Orders {
       this.nmId
     )}`;
 
-    this._cardOrders.querySelector(".numberApi").textContent = this.number;
+    // this._cardOrders.querySelector(".numberApi").textContent = this.number;
     this._cardOrders.querySelector(".dateApi").textContent = this.date;
     this._cardOrders.querySelector(".lastChangeDateApi").textContent =
       this.lastChangeDate;
@@ -70,7 +71,7 @@ class Orders {
       this.supplierArticle;
     this._cardOrders.querySelector(".techSizeApi").textContent = this.techSize;
     this._cardOrders.querySelector(".barcodeApi").textContent = this.barcode;
-    this._cardOrders.querySelector(".quantityApi").textContent = this.quantity;
+    // this._cardOrders.querySelector(".quantityApi").textContent = this.quantity;
     this._cardOrders.querySelector(".totalPriceApi").textContent =
       this.totalPrice;
     this._cardOrders.querySelector(".discountPercentApi").textContent =
@@ -97,6 +98,8 @@ class Orders {
     this._cardOrders.querySelector(".cancel_dtApi").textContent =
       this.cancel_dt;
     this._cardOrders.querySelector(".gNumberApi").textContent = this.gNumber;
+    this._cardOrders.querySelector(".stickerApi").textContent = this.sticker;
+
     return this._cardOrders;
   }
 
