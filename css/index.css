@@ -316,3 +316,14 @@ legend {
 .afterRub::after {
   content: " руб.";
 }
+
+.templateCard_font_style{
+  font-weight: bold;
+}
+
+
+.reportlogistic{color: #339dc7;
+font-weight: bold;}
+
+.reportSale{color: rgb(30, 210, 99);
+  font-weight: bold}

@@ -1,3 +1,19 @@
+// Номер отчёта
+let counterReportNumber = 0;
+// Считает кол-во отчётов
+let counterReportSumm = 0;
+// Считает кол-во "Логистика"
+let counterReportLogistic = 0;
+// Считает кол-во "Продажа"
+let counterReportSales = 0;
+
+function counterReportNull() {
+  let counterReportNumber = 0;
+  let counterReportSumm = 0;
+  let counterReportLogistic = 0;
+  let counterReportSales = 0;
+}
+
 class ReportDetailByPeriod {
   constructor(APIReportDetailByPeriod, i) {
     this.i = i + 1;
@@ -81,6 +97,11 @@ class ReportDetailByPeriod {
 
     this.cardReport.querySelector(".realizationreport_idApi").textContent =
       this.realizationreport_id;
+    if (counterReportNumber != this.realizationreport_id) {
+      counterReportSumm++;
+      counterReportNumber = this.realizationreport_id;
+      console.log(counterReportSumm);
+    }
     this.cardReport.querySelector(".suppliercontract_codeApi").textContent =
       this.suppliercontract_code;
     this.cardReport.querySelector(".ridApi").textContent = this.rid;
@@ -110,6 +131,20 @@ class ReportDetailByPeriod {
       this.office_name;
     this.cardReport.querySelector(".supplier_oper_nameApi").textContent =
       this.supplier_oper_name;
+    if (this.supplier_oper_name == "Логистика") {
+      this.cardReport
+        .querySelector(".supplier_oper_nameApi")
+        .classList.add("reportlogistic");
+      counterReportLogistic++;
+      console.log(counterReportLogistic);
+    }
+    if (this.supplier_oper_name == "Продажа") {
+      this.cardReport
+        .querySelector(".supplier_oper_nameApi")
+        .classList.add("reportSale");
+      counterReportSales++;
+      console.log(counterReportSales);
+    }
     this.cardReport.querySelector(".order_dtApi").textContent = this.order_dt;
     this.cardReport.querySelector(".sale_dtApi").textContent = this.sale_dt;
     this.cardReport.querySelector(".shk_idApi").textContent = this.shk_id;
@@ -175,4 +210,38 @@ class ReportDetailByPeriod {
     li.append(this.CardReportLi);
     document.querySelector(".card_list").append(li);
   }
+}
+
+// Общая информация из API
+function counterAllReport() {
+  console.log("работает");
+  let ul = document.createElement("ul");
+  ul.classList.add("apiInfo_all");
+  let listGeneral = document.createElement("li");
+  listGeneral.classList.add("generalInfo");
+  console.log(ul);
+
+  if (counterReportSumm) {
+    listGeneral.textContent = `Всего отчётов ${
+      document.querySelector("#dateApi").value
+    }: ${counterReportSumm} шт.`;
+  }
+  ul.append(listGeneral);
+
+  if (counterReportLogistic > 0) {
+    let listLogistyk = document.createElement("li");
+    listLogistyk.classList.add("secondaryInfo");
+    listLogistyk.classList.add("sales_textColor");
+    listLogistyk.textContent = `Всего доставок: ${counterReportLogistic}`;
+    ul.append(listLogistyk);
+  }
+
+  if (counterReportSales > 0) {
+    let listSales = document.createElement("li");
+    listSales.classList.add("secondaryInfo");
+    listSales.classList.add("sales_textColor");
+    listSales.textContent = `Всего продаж: ${counterReportSales}шт.`;
+    ul.append(listSales);
+  }
+  document.querySelector(".apiInfo").append(ul);
 }

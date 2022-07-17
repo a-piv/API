@@ -31,17 +31,6 @@ buttonGetIncomes.addEventListener("click", () => {
   // getJson("incomes");
 });
 
-function createReportCard(data) {
-  console.log(data);
-  // Очищаем счётчик
-  data.forEach((params, i) => {
-    const reportCard = new ReportDetailByPeriod(params, i);
-    const cardReportCard = reportCard._cardBackgroundReport();
-    console.log(reportCard);
-  });
-  // counterAllSales();
-}
-
 //Проверяем флаг
 let flagApi = document.getElementById("flagApi");
 flagApi.addEventListener("click", function (event) {
@@ -117,6 +106,18 @@ function createIncomesCard(data) {
       console.log("с рамкой");
     }
   });
+}
+
+function createReportCard(data) {
+  console.log(data);
+  // Очищаем счётчик
+  data.forEach((params, i) => {
+    const reportCard = new ReportDetailByPeriod(params, i);
+    const cardReportCard = reportCard._cardBackgroundReport();
+    console.log(reportCard);
+  });
+  counterAllReport();
+  counterReportNull();
 }
 
 //  Функция для пострения заказов
