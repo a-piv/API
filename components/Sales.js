@@ -60,6 +60,7 @@ class Sales {
       (this.isSupply = APISales.isSupply),
       (this.oblastOkrugName = APISales.oblastOkrugName),
       (this.odid = APISales.odid),
+      (this.srid = APISales.srid),
       (this.sticker = APISales.sticker),
       // (this.orderId = APISales.orderId),
       (this.priceWithDisc = APISales.priceWithDisc),
@@ -121,6 +122,8 @@ class Sales {
     this._element.querySelector(".oblastOkrugNameApi").textContent =
       this.oblastOkrugName;
     this._element.querySelector(".odidApi").textContent = this.odid;
+    this._element.querySelector(".sridApi").textContent = this.srid;
+
     // this._element.querySelector(".orderIdApi").textContent = this.orderId;
     this._element.querySelector(".stickerApi").textContent = this.sticker;
     this._element.querySelector(".priceWithDiscApi").textContent =

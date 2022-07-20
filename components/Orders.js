@@ -30,6 +30,7 @@ class Orders {
     this.oblast = param.oblast;
     this.incomeID = param.incomeID;
     this.odid = param.odid;
+    this.srid = param.srid;
     this.nmId = param.nmId;
     this.subject = param.subject;
     this.category = param.category;
@@ -90,6 +91,7 @@ class Orders {
     this._cardOrders.querySelector(".oblastApi").textContent = this.oblast;
     this._cardOrders.querySelector(".incomeIDApi").textContent = this.incomeID;
     this._cardOrders.querySelector(".odidApi").textContent = this.odid;
+    this._cardOrders.querySelector(".sridApi").textContent = this.srid;
     this._cardOrders.querySelector(".nmIdApi").textContent = this.nmId;
     this._cardOrders.querySelector(".subjectApi").textContent = this.subject;
     this._cardOrders.querySelector(".categoryApi").textContent = this.category;
