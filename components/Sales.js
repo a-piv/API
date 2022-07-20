@@ -315,7 +315,7 @@ function counterAllSales() {
   if (countNullDoplata > 0) {
     let listStornoVozvrat = document.createElement("li");
     listStornoVozvrat.classList.add("secondaryInfo");
-    listStornoVozvrat.textContent = `Всего доплат с нулевой стоимостью: ${countNullDoplata}шт. (Это баг, но пользователям не пишем)`;
+    listStornoVozvrat.textContent = `Всего доплат с нулевой стоимостью: ${countNullDoplata}шт.`;
     ul.append(listStornoVozvrat);
   }
 
