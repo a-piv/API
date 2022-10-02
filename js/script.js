@@ -6,7 +6,7 @@ const buttonGetIncomes = document.querySelector(".buttonGetIncomes");
 const buttonGetreportDetailByPeriod = document.querySelector(
   ".buttonGetreportDetailByPeriod"
 );
-
+const buttonCheckNewApi = document.querySelector(".buttonCheckNewApi");
 buttonGetStocks.addEventListener("click", () => {
   getApiJson("stocks", createStocksCard);
   // getJson("stocks");
@@ -31,6 +31,9 @@ buttonGetIncomes.addEventListener("click", () => {
   // getJson("incomes");
 });
 
+buttonCheckNewApi.addEventListener("click", () => {
+  check_New_API();
+});
 //Проверяем флаг
 let flagApi = document.getElementById("flagApi");
 flagApi.addEventListener("click", function (event) {

@@ -151,6 +151,23 @@ button:hover {
 .sales_color {
   background-color: rgb(198, 255, 145);
 }
+
+
+.background_color_green {
+  background-color: rgb(198, 255, 145);
+}
+
+.background_color_red {
+  background-color: rgb(255, 0, 0);
+}
+
+
+
+.sales_color {
+  background-color: rgb(198, 255, 145);
+}
+
+
 .stocks_color {
   background-color: rgb(204, 204, 204);
 }
