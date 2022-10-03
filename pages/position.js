@@ -4,7 +4,7 @@ let buttonPositionNumber = document.querySelector(".searchRequest");
 let positionMassiv = "";
 let searchQuery = "";
 let article = "";
-let page = "";
+let page = 1;
 let positionNumber = "";
 
 // Получаем поисковй запрос на WB (слово+второе+слово) Один раз
@@ -48,6 +48,7 @@ async function getPositionJSON(searchQuery, page) {
 
 // После клика на "Получить позиции". Получаем "поисковый запрос", "артикул" товара и передаём.
 buttonGetPosition.addEventListener("click", () => {
+  resetParam();
   getSearchQuery();
   getArtikleSearch();
   getAllid();
@@ -62,19 +63,30 @@ buttonGetPosition.addEventListener("click", () => {
   // createMass(positionMassiv, article);
 });
 
-async function go() {
-  let a = await getPositionJSON(searchQuery, page);
-  let massiv = a.data.products;
-  console.log(massiv);
-  await poiskvmassive(massiv);
-  console.log(position);
-  if (position == 0) {
-    // a = await getPositionJSON(searchQuery, page);
-    massiv = a.data.products;
-    console.log(massiv);
-    // await poiskvmassive(massiv);
-    // console.log(position);
-  }
+// async function go() {
+//   let a = await getPositionJSON(searchQuery, page);
+//   let massiv = a.data.products;
+//   console.log(massiv);
+//   await poiskvmassive(massiv);
+//   console.log(position);
+//   if (position == 0) {
+//     // a = await getPositionJSON(searchQuery, page);
+//     massiv = a.data.products;
+//     console.log(massiv);
+//     // await poiskvmassive(massiv);
+//     // console.log(position);
+//   }
+// }
+
+function resetParam() {
+  searchQuery = "";
+  article = "";
+  page = 1;
+  let buttonResult = document.querySelector(".searchRequest");
+  buttonResult.classList.remove("background_color_green");
+  buttonResult.classList.remove("background_color_red");
+  buttonResult.classList.add("searchRequestNone");
+  buttonResult.value = "Оптередяется позиция товара";
 }
 
 async function getAllid() {
@@ -102,6 +114,9 @@ async function getAllid() {
       break;
     }
     console.log(`Страница ${page}, позиция товара ${positionNumber}`);
+    document.querySelector(
+      ".searchRequest"
+    ).value = `Оптередяется позиция. Страница: ${page}`;
   }
   // console.log(positionNumber);
   if (positionNumber == "") {
