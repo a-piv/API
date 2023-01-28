@@ -31,17 +31,20 @@ buttonGetIncomes.addEventListener("click", () => {
   // getJson("incomes");
 });
 
-buttonCheckNewApi.addEventListener("click", () => {
-  check_New_API();
-});
+// buttonCheckNewApi.addEventListener("click", () => {
+//   check_New_API();
+// });
 //Проверяем флаг
 let flagApi = document.getElementById("flagApi");
 flagApi.addEventListener("click", function (event) {
   if (event.target.checked) {
+    console.log ("flag = 1")
     return (flag = 1);
   } else {
+    console.log ("flag = 0")
     return (flag = 0);
   }
+  
 });
 
 // Получаем строку вызова. Также используется для текста в обращении для поддержки
