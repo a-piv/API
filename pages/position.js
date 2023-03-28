@@ -26,23 +26,50 @@ function getArtikleSearch() {
   return article;
 }
 
+// Добавить поисковой запрос
+// function putSearchRequest(){
+
+// }
+
+
 // Получаем ссылку на промис с массивом данных
 async function getPositionJSON(searchQuery, page) {
   // let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&query=${searchQuery}&reg=1&regions=68,64,83,4,38,80,33,70,82,86,75,30,69,22,66,31,40,1,48,71&resultset=catalog&sort=popular&spp=23&suppressSpellcheck=false`;
   // let positionURL = `https://search.wb.ru/exactmatch/ru/male/v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-2162196,-1257786&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&query=${searchQuery}&reg=1&regions=68,64,83,4,38,80,33,70,82,86,75,30,69,1,48,22,66,31,40,71&resultset=catalog&sort=popular&spp=0&suppressSpellcheck=false`;
   
-// категория не работает let positionURL = `https://catalog.wb.ru/catalog/beauty6/catalog?appType=1&couponsGeo=2,12,7,6,9,21,11&curr=rub&dest=-1221185,-151223,-1782064,-1785054&emp=0&ext=63808&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1&reg=1&regions=80,64,4,38,70,82,69,86,30,40,48,1,22,66&sort=popular&spp=30&sppFixGeo=4&subject=341;357;359;360;361;362;363;365;367;377;382;403;439;708;871;950;958;959;1246;1522;1566;1672;1867;1963;2259;2741;3151;5976;7424`;
+  // категория не работает let positionURL = `https://catalog.wb.ru/catalog/beauty6/catalog?appType=1&couponsGeo=2,12,7,6,9,21,11&curr=rub&dest=-1221185,-151223,-1782064,-1785054&emp=0&ext=63808&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1&reg=1&regions=80,64,4,38,70,82,69,86,30,40,48,1,22,66&sort=popular&spp=30&sppFixGeo=4&subject=341;357;359;360;361;362;363;365;367;377;382;403;439;708;871;950;958;959;1246;1522;1566;1672;1867;1963;2259;2741;3151;5976;7424`;
 
   // let positionURL = `https://search.wb.ru/exactmatch/ru/male/v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&query=${searchQuery}&reg=1&regions=80,68,64,83,4,38,33,70,82,69,86,75,30,40,48,1,22,66,31,71&resultset=catalog&sort=popular&spp=25&suppressSpellcheck=false`;
-  let positionURL = `https://search.wb.ru/exactmatch/ru/male/v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&query=${searchQuery}&reg=1&regions=80,64,83,4,38,33,70,82,69,68,86,75,30,40,48,1,22,66,31,71&resultset=catalog&sort=popular&spp=28&sppFixGeo=4&suppressSpellcheck=false`
+  // ___________
+  // Мы используем (ответ от Антона) 02.03.2023 
+  let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`;
   
+  // Поисковая позиция по Москве без авторизации
+  // let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`
+  
+  
+  // ___________
+  // Было до 09.03.2023
+  // Поисковая позиция по Москве без авторизации
+  // let positionURL = `https://search.wb.ru/exactmatch/ru/male/v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&query=${searchQuery}&reg=1&regions=80,64,83,4,38,33,70,82,69,68,86,75,30,40,48,1,22,66,31,71&resultset=catalog&sort=popular&spp=28&sppFixGeo=4&suppressSpellcheck=false`
+  
+  
+  // let catalogPositionURL = `https://catalog.wb.ru/catalog/office_bigroot/catalog?appType=1&cat=10460&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&reg=1&regions=80,64,83,4,38,33,70,68,69,86,75,30,40,48,1,22,66,31,71&sort=popular&spp=28&sppFixGeo=4`
+    // let positionURL = `https://search.wb.ru/exactmatch/ru/male  /v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&query=${searchQuery}&reg=1&regions=80,64,83,4,38,33,70,82,69,68,86,75,30,40,48,1,22,66,31,71&resultset=catalog&sort=popular&spp=28&sppFixGeo=4&suppressSpellcheck=false`
+  // let positionURL = `https://search.wb.ru/exactmatch/ru/male  /v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-446117&emp=0&lang=ru&locale=ru&page=2&pricemarginCoeff=1.0&query=%D0%A8%D1%82%D0%B0%D0%BD%D1%8B%20%D0%BC%D1%83%D0%B6%D1%81%D0%BA%D0%B8%D0%B5&reg=1&regions=80,64,38,4,83,33,68,70,69,30,86,75,40,1,66,31,48,110,22,71&resultset=catalog&sort=popular&spp=27&sppFixGeo=4&suppressSpellcheck=false`
+  // let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=%D0%BF%D0%BB%D0%B0%D1%82%D1%8C%D0%B5%20%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B5%20%D0%B8%20%D0%BF%D0%BB%D0%B0%D1%82%D1%8C%D0%B5&resultset=catalog&page=1`
+  // Ссылка с WB
   
 
+
   // let positionURL =  https://search.wb.ru/exactmatch/ru/male/v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=24&pricemarginCoeff=1.0&query=%D0%BA%D0%BE%D0%BB%D1%8C%D1%86%D0%BE%20%D0%B8%D0%B7%20%D0%B1%D0%B8%D1%81%D0%B5%D1%80%D0%B0&reg=1&regions=68,64,83,4,38,80,33,70,82,86,75,30,69,1,48,22,66,31,40,71&resultset=catalog&sort=popular&spp=24&suppressSpellcheck=false
-  // каталог: https://catalog.wb.ru/catalog/interior3/catalog?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=2&pricemarginCoeff=1.0&reg=1&regions=68,64,83,4,38,80,33,70,82,86,75,30,69,1,48,22,66,31,40,71&sort=popular&spp=25&subject=331;1760;5229;7161;7162;7707
+  //каталог:  https://catalog.wb.ru/catalog/office_bigroot/catalog?appType=1&cat=10460&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=2&pricemarginCoeff=1.0&reg=1&regions=80,64,83,4,38,33,70,68,69,86,75,30,40,48,1,22,66,31,71&sort=popular&spp=28&sppFixGeo=4
   // let positionURL = `https://catalog.wb.ru/catalog/interior3/catalog?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&reg=1&regions=68,64,83,4,38,80,33,70,82,86,75,30,69,1,48,22,66,31,40,71&sort=popular&spp=25&subject=331;1760;5229;7161;7162;7707`;
   let positionMassiv1 = await fetch(positionURL);
+  // let catalogPositionMassiv = await fetch (catalogPositionURL) 
   console.log(positionMassiv1.json);
+  console.log(`-------------Позиции в каталоге-------------`)
+  // console.log(catalogPositionMassiv.json);
   return positionMassiv1.json();
 
   

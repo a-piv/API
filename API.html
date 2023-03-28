@@ -17,17 +17,18 @@
             <input
               name="inputApii"
               class="inputApi"
-              placeholder="Введите API-ключ WB в формате x64 (старый API)"
+              placeholder="Введите API-ключ (тип: Статистика)"
+              value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NJRCI6ImY4YmMwY2Q4LWFiY2EtNDc5Mi1iNWI5LTc1ZWFlNGNlZTMxZCJ9._V6ddNnpXPkBtPijSnJ3ccg_7BKYA4wtyjwpqgqSuEY"
               autofocus
               required
-              maxlength="80"
+              maxlength="250"
             >
             </input>
           </p>
           
           <p class="formGetApi">
             <label for="dateApiHeader">Дата: </label>
-            <input type="date" name="dateApi" value="2022-02-01" id="dateApi" />
+            <input type="date" name="dateApi" value="2022-02-01" id="dateApi" >
           </p>
 
           <!-- <p class="formGetApi">
@@ -595,7 +596,8 @@
         расчитываются из данных в апи (самого числа нет в API).
       </section>
 <!-- <script type="module" src="./utils/constants.js"></script> -->
-      <script src="./js/script.js"></script>
+      <!-- <script src="./js/script.js"></script> Было ранее "старый апи x64  -->
+      <script src="./js/API_statistics.js"></script>
       <script src="./components/Incomes.js"></script>
       <script src="./components/Sales.js"></script>
       <script src="./components/Orders.js"></script>
@@ -606,4 +608,3 @@
     </div>
   </body>
 </html>
-<!-- OGRlMzFjMTQtYThiNy00ZTc0LWI4N2ItOTdlYTg5NmU0OTdh -->

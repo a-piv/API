@@ -5,6 +5,7 @@ let summOrders = 0;
 let summOrdersCansel = 0;
 let counterNmIdNull = 0;
 
+console.log('lllld')
 function counterOrdersNull() {
   counterOrdersAll = 0;
   counterOrdersOk = 0;
@@ -200,4 +201,5 @@ function counterAllOrders() {
   }
 
   document.querySelector(".apiInfo").append(ul);
+  console.log(ul)
 }
