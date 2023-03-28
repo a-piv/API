@@ -61,9 +61,8 @@ class Orders {
         `https://www.wildberries.ru/catalog/${this.nmId}/detail.aspx`
       );
 
-    this._cardOrders.querySelector(".photo-card_small").src = `${imageCrеate(
-      this.nmId
-    )}`;
+      let image = imageCrеateSeo(this.nmId);
+    this._cardOrders.querySelector(".photo-card_small").src = image;
 
     // this._cardOrders.querySelector(".numberApi").textContent = this.number;
     this._cardOrders.querySelector(".dateApi").textContent = this.date;
