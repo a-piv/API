@@ -40,10 +40,18 @@ async function getPositionJSON(searchQuery, page) {
   // категория не работает let positionURL = `https://catalog.wb.ru/catalog/beauty6/catalog?appType=1&couponsGeo=2,12,7,6,9,21,11&curr=rub&dest=-1221185,-151223,-1782064,-1785054&emp=0&ext=63808&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1&reg=1&regions=80,64,4,38,70,82,69,86,30,40,48,1,22,66&sort=popular&spp=30&sppFixGeo=4&subject=341;357;359;360;361;362;363;365;367;377;382;403;439;708;871;950;958;959;1246;1522;1566;1672;1867;1963;2259;2741;3151;5976;7424`;
 
   // let positionURL = `https://search.wb.ru/exactmatch/ru/male/v4/search?appType=1&couponsGeo=12,3,18,15,21&curr=rub&dest=-1029256,-102269,-226149,-446117&emp=0&lang=ru&locale=ru&page=${page}&pricemarginCoeff=1.0&query=${searchQuery}&reg=1&regions=80,68,64,83,4,38,33,70,82,69,86,75,30,40,48,1,22,66,31,71&resultset=catalog&sort=popular&spp=25&suppressSpellcheck=false`;
+  
   // ___________
   // Мы используем (ответ от Антона) 02.03.2023 
-  let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`;
+  // let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`;
   
+  // Для категорий:
+  let query = searchQuery;
+  let positionURL = `https://www.wildberries.ru/catalog/aksessuary/sumki-i-ryukzaki/tags/zhenskie-sumki?sort=popular&page=${page}`;
+
+// РЕкламные запросы:
+// https://catalog-ads.wildberries.ru/api/v5/search?keyword=брелок
+
   // Поисковая позиция по Москве без авторизации
   // let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`
   

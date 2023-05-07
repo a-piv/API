@@ -44,3 +44,19 @@ margin: 10px 10px;
 .searchRequestNone{
   display: none;
 }
+
+
+/* Новые  */
+.positionCategoryRow{
+  display: flex;
+}
+
+.positionCategoryСolumn{
+  flex-wrap: wrap;
+  margin: 0 10px;
+}
+
+
+/* .positionArticleNew{
+  width: 100%;
+} */

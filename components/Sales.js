@@ -90,10 +90,7 @@ class Sales {
         `https://www.wildberries.ru/catalog/${this.nmId}/detail.aspx`
       );
 
-    this._element.querySelector(".photo-card_small").src = `${imageCrеate(
-      this.nmId
-    )}`;
-
+    this._element.querySelector(".photo-card_small").src = imageCrеateSeo(this.nmId);
     this._element.querySelector(".barcodeApi").textContent = this.barcode;
     this._element.querySelector(".brandApi").textContent = this.brand;
     this._element.querySelector(".categoryApi").textContent = this.category;
