@@ -5,6 +5,8 @@ let SalesSummForPay = 0;
 let SalesQuantitySales = 0;
 let SalesFinishedPrice = 0;
 let SalesQuantityfinishedPrice = 0;
+let SalesSummForPayNull = 0;
+let SalesQuantityForPayNull = 0;
 
 // Возвраты
 let SalesSummReturn = 0;
@@ -97,6 +99,14 @@ function getAPISales(callbackd) {
         SalesSummDoplata = summDoplata + massivAPI.priceWithDisc;
         SalesQuantityDoplata++;
       }
+
+      if (massivAPI.forPay == 0) {
+        SalesSummForPayNull = SalesSummForPayNull + massivAPI.forPay
+        SalesQuantityForPayNull++
+        console.log("Нулевик")
+        console.log(massivAPI.forPay)
+      }
+      
     });
 
     // Выводим общую информацию под АПИ
@@ -132,6 +142,13 @@ function getAPISales(callbackd) {
         `Кол-во доплат`,
         SalesQuantityDoplata,
         SalesSummDoplata
+      );
+    }
+
+    // К перечислению поставщику: 0
+    if (SalesQuantityForPayNull !== 0) {
+      createLiFreePapam(`Кол-во где нулевое "К перечислению поставщику"`, 
+        SalesQuantityForPayNull, SalesSummForPayNull
       );
     }
 

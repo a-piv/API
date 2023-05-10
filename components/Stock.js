@@ -62,9 +62,7 @@ class Stock {
         `https://www.wildberries.ru/catalog/${this.nmId}/detail.aspx`
       );
 
-    this.cardStocks.querySelector(".photo-card_small").src = `${imageCrеate(
-      this.nmId
-    )}`;
+    this.cardStocks.querySelector(".photo-card_small").src = imageCrеateSeo(this.nmId);
 
     this.cardStocks.querySelector(".lastChangeDateApi").textContent =
       this.lastChangeDate;

@@ -99,7 +99,7 @@ function getAPIOrders(callbackd) {
         // console.log(`Кол-во отменённых заказов: ${quantityFalseOrdes}шт. на сумму ${summOrdesFalse}руб.`)        
       }
       if(notGNumber > 0){
-        createLiFreePapam(`Кол-во заказов без номера`,notGNumber, notGNumberSumm)
+        createLiFreePapam(`Кол-во заказов без номера (добавить ещё проверку по "odid" )`,notGNumber, notGNumberSumm)
         console.log(`Кол-во заказов без номера: ${notGNumber}шт. (такие заказы не отражены в S4M, это ошибка в API)`)        
       }
 
