@@ -45,15 +45,15 @@ async function getPositionJSON(searchQuery, page) {
   // Мы используем (ответ от Антона) 02.03.2023 
   // let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`;
   
-  // Для категорий:
-  let query = searchQuery;
-  let positionURL = `https://www.wildberries.ru/catalog/aksessuary/sumki-i-ryukzaki/tags/zhenskie-sumki?sort=popular&page=${page}`;
+  // // Для категорий:
+  // let query = searchQuery;
+  // let positionURL = `https://www.wildberries.ru/catalog/aksessuary/sumki-i-ryukzaki/tags/zhenskie-sumki?sort=popular&page=${page}`;
 
 // РЕкламные запросы:
 // https://catalog-ads.wildberries.ru/api/v5/search?keyword=брелок
 
   // Поисковая позиция по Москве без авторизации
-  // let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`
+  let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`
   
   
   // ___________
