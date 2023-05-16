@@ -41,7 +41,6 @@ function imageCrеateSeo(nmId){
   
     //basket-10.wb.ru/vol1315/part131500/131500000/images/c246x328/1.jpg
     // https://basket-10.wb.ru/vol1320/part132000/132000000/images/c246x328/1.jpg
-    
     // https://basket-10.wb.ru/vol1458/part145800/145800000/images/c246x328/1.jpg
   
     
@@ -58,7 +57,8 @@ function imageCrеateSeo(nmId){
     if (nmId <= 111599999){basketNumber = "07"}else
     if (nmId <= 116999999){basketNumber = "08"}else
     if (nmId <= 131200000){basketNumber = "09"}else
-    if (nmId > 131200000){basketNumber = "10"};
+    if (nmId <= 160199999){basketNumber = "10"}else
+    if (nmId > 160200000){basketNumber = "11"};
     
     const imageURL = `https://basket-${basketNumber}.wb.ru`;
     
