@@ -53,7 +53,11 @@ async function getPositionJSON(searchQuery, page) {
 // https://catalog-ads.wildberries.ru/api/v5/search?keyword=брелок
 
   // Поисковая позиция по Москве без авторизации
-  let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`
+  // Было до 21.06.2023 let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`
+
+
+
+  let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?TestGroup=no_test&TestID=no_test&appType=1&curr=rub&dest=-446117&page=${page}&query=${searchQuery}&regions=80,38,4,64,83,33,68,70,69,30,86,75,40,1,66,110,22,31,48,71,114&resultset=catalog&sort=popular&spp=27&suppressSpellcheck=false`
   
   
   // ___________

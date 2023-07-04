@@ -1,17 +1,23 @@
-let inWayToClientCounter = 0;
-let inWayFromClientCounter = 0;
+// Новость WB
+// С 15 декабря из ответов stocks будут исключены следующие поля: 
+// — quantityNotInOrders 
+// — warehouse 
+// — inWayToClient 
+// — inWayFromClient 
+// «Товары в пути» = quantityFull минус quantity 
+// Уникальный идентификатор склада: warehouseName
 
 // Всего товаров для продиж:
 let counterAllQuantityProduct = 0;
 // На общую сумму:
 let counterAllQuantitySumm = 0;
 
-function counterStockNull() {
-  inWayToClientCounter = 0;
-  inWayFromClientCounter = 0;
-  counterAllQuantityProduct = 0;
-  counterAllQuantitySumm = 0;
-}
+// function counterStockNull() {
+//   inWayToClientCounter = 0;
+//   //inWayFromClientCounter = 0;
+//   counterAllQuantityProduct = 0;
+//   counterAllQuantitySumm = 0;
+// }
 
 class Stock {
   constructor(apiStocks, i) {
@@ -24,10 +30,11 @@ class Stock {
     this.isSupply = apiStocks.isSupply;
     this.isRealization = apiStocks.isRealization;
     this.quantityFull = apiStocks.quantityFull;
-    this.quantityNotInOrders = apiStocks.quantityNotInOrders;
+    // this.quantityNotInOrders = apiStocks.quantityNotInOrders;
     this.warehouseName = apiStocks.warehouseName;
-    this.inWayToClient = apiStocks.inWayToClient;
-    this.inWayFromClient = apiStocks.inWayFromClient;
+    // this.inWayToClient = apiStocks.inWayToClient;
+    // this.inWayFromClient = apiStocks.inWayFromClient;
+    toClientCounter = toClientCounter + (this.quantityFull - this.quantity);
     this.nmId = apiStocks.nmId;
     this.subject = apiStocks.subject;
     this.category = apiStocks.category;
@@ -77,18 +84,19 @@ class Stock {
       this.isRealization;
     this.cardStocks.querySelector(".quantityFullApi").textContent =
       this.quantityFull;
-    this.cardStocks.querySelector(".quantityNotInOrdersApi").textContent =
-      this.quantityNotInOrders;
+    // this.cardStocks.querySelector(".quantityNotInOrdersApi").textContent =
+    //   this.quantityNotInOrders;
     this.cardStocks.querySelector(".warehouseNameApi").textContent =
       this.warehouseName;
 
-    this.cardStocks.querySelector(".inWayToClientApi").textContent =
-      this.inWayToClient;
-    inWayToClientCounter = inWayToClientCounter + this.inWayToClient;
 
+    this.cardStocks.querySelector(".inWayToClientApi").textContent = this.quantityFull - this.quantity;
+      // this.inWayToClient;
+
+      
     this.cardStocks.querySelector(".inWayFromClientApi").textContent =
       this.inWayFromClient;
-    inWayFromClientCounter = inWayFromClientCounter + this.inWayFromClient;
+    //inWayFromClientCounter = inWayFromClientCounter + this.inWayFromClient;
 
     this.cardStocks.querySelector(".nmIdApi").textContent = this.nmId;
     this.cardStocks.querySelector(".subjectApi").textContent = this.subject;
@@ -122,33 +130,42 @@ class Stock {
       this.cardStocks.querySelector(".techSize").remove();
     }
   }
+
+  // Создаём итоговые данные, список под строкой с апи
+  // _cardSummaryDataToClient() {
+  //   let liCreate = document.createElement("li");
+  //   liCreate.textContent = `К клиенту: ${inWayToClientCounter}шт.`;
+  //   document.querySelector(".apiInfo_all").append(liCreate);
+  // }
+  
 }
-function counterFromClient() {
-  let ul = document.createElement("ul");
-  ul.classList.add("apiInfo_all");
 
-  //   let counterAllQuantityProduct = 0;
-  // // На общую сумму:
-  // let counterAllQuantitySumm = 0;
+// function counterFromClient() {
+//   let ul = document.createElement("ul");
+//   ul.classList.add("apiInfo_all");
 
-  let allQuantitySale = document.createElement("li");
-  allQuantitySale.classList.add("generalInfo");
-  allQuantitySale.textContent = `За  ${
-    document.querySelector("#dateApi").value
-  } кол-во товаров (доступных для продажи)  ${counterAllQuantityProduct}шт. На общую сумму ${counterAllQuantitySumm} руб. (без учёта СПП)`;
-  ul.append(allQuantitySale);
+//   //   let counterAllQuantityProduct = 0;
+//   // // На общую сумму:
+//   // let counterAllQuantitySumm = 0;
 
-  let listToClient = document.createElement("li");
-  listToClient.classList.add("secondaryInfo");
-  listToClient.textContent = `Едет к клиенту: ${inWayToClientCounter}шт.`;
-  ul.append(listToClient);
+//   let allQuantitySale = document.createElement("li");
+//   allQuantitySale.classList.add("generalInfo");
+//   allQuantitySale.textContent = `За  ${
+//     document.querySelector("#dateApi").value
+//   } кол-во товаров (доступных для продажи)  ${counterAllQuantityProduct}шт. На общую сумму ${counterAllQuantitySumm} руб. (без учёта СПП)`;
+//   ul.append(allQuantitySale);
 
-  let listFromClient = document.createElement("li");
-  listFromClient.classList.add("secondaryInfo");
-  listFromClient.textContent = `Едет от клиента: ${inWayFromClientCounter}шт.`;
-  ul.append(listFromClient);
+//   let listToClient = document.createElement("li");
+//   listToClient.classList.add("secondaryInfo");
+//   listToClient.textContent = `Едет к клиенту: ${inWayToClientCounter}шт.`;
+//   ul.append(listToClient);
 
-  document.querySelector(".apiInfo").append(ul);
+//   let listFromClient = document.createElement("li");
+//   listFromClient.classList.add("secondaryInfo");
+//   //listFromClient.textContent = `Едет от клиента: ${inWayFromClientCounter}шт.`;
+//   ul.append(listFromClient);
 
-  counterStockNull();
-}
+//   document.querySelector(".apiInfo").append(ul);
+
+//   counterStockNull();
+// }

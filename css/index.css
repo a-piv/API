@@ -162,6 +162,12 @@ button:hover {
 }
 
 
+.background_color_text_error {
+  background-color: rgb(240, 128, 128);
+}
+
+
+
 
 .sales_color {
   background-color: rgb(198, 255, 145);

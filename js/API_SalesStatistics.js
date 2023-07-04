@@ -54,20 +54,6 @@ function getAPISales(callbackd) {
     console.log(`Кол-во записей: ${response.length}`);
     // massivOrders = response;
 
-    // Функция для генерации списка под апи
-    function createLiTwoPapam(quantity, summ) {
-      let liCreate = document.createElement("li");
-      liCreate.textContent = `${quantity}: ${summ}шт.`;
-      document.querySelector(".apiInfo_all").append(liCreate);
-    }
-
-    function createLiFreePapam(deckr, quantity, summ) {
-      let liCreate = document.createElement("li");
-      liCreate.textContent = `${deckr}: ${quantity}шт. на общую сумму: ${summ}руб.`;
-      // liCreate.textContent=`Всего заказов: ${response.length}шт.`;
-      document.querySelector(".apiInfo_all").append(liCreate);
-    }
-
     // ------------------- Информация о кол-ве закзов и прочее -------------------
 
     console.log(response);
@@ -151,7 +137,7 @@ function getAPISales(callbackd) {
         SalesQuantityForPayNull, SalesSummForPayNull
       );
     }
-
+    razdelitel()
     // console.log(`Кол-во успешнных заказов: ${quantityTrueSales}шт. на сумму ${summSales}руб.`)
     //   if(quantityFalseSales > 0){
     //     createLiFreePapam(`Кол-во возвратов`,quantitySales, quantitySales )

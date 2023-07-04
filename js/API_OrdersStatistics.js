@@ -36,19 +36,9 @@ function getAPIOrders(callbackd) {
         // massivOrders = response;
         
         
-        // Функция для генерации списка под апи
-        function createLiTwoPapam(quantity, summ){
-          let liCreate = document.createElement('li');
-          liCreate.textContent=`${quantity}: ${summ}шт.`;
-          document.querySelector('.apiInfo_all').append(liCreate)
-        }
-        
-        function createLiFreePapam(deckr,quantity, summ){
-          let liCreate = document.createElement('li');
-          liCreate.textContent=`${deckr}: ${quantity}шт. на общую сумму: ${summ}руб.`;
-          // liCreate.textContent=`Всего заказов: ${response.length}шт.`;
-          document.querySelector('.apiInfo_all').append(liCreate)
-        }
+
+
+
 
 
       
@@ -61,6 +51,14 @@ function getAPIOrders(callbackd) {
         let quantityFalseOrdes = 0;
         let notGNumber = 0;
         let notGNumberSumm = 0;
+        let notNm = 0;
+        let notSumm = 0;
+        let notOdId = 0;
+        let notOdIdSumm = 0;
+
+        let notWarehouseName = 0;
+        let notWarehouseNameSumm = 0;
+
         
         response.forEach(function(i){
 
@@ -85,6 +83,26 @@ function getAPIOrders(callbackd) {
                   notGNumber++;
                   notGNumberSumm = notGNumberSumm + Math.round(i.totalPrice - (i.totalPrice/100*i.discountPercent))
                   }
+                  // ------------------- где отсутствует параметр nm у заказов -------------------   
+                  if( i.nmId == 0)
+                  {
+                    notNm++;
+                    notSumm = notSumm + Math.round(i.totalPrice - (i.totalPrice/100*i.discountPercent))
+                  }
+                  
+                  // ------------------- где отсутствует параметр OdId у заказов -------------------   
+                  if( i.odid == 0)
+                  {
+                    notOdId++;
+                    notOdIdSumm = notOdIdSumm + Math.round(i.totalPrice - (i.totalPrice/100*i.discountPercent))
+                  }
+
+                  // ------------------- где отсутствует параметр warehouseName у заказов -------------------   
+                  if( i.warehouseName == '')
+                  {
+                    notWarehouseName++;
+                    notWarehouseNameSumm = notWarehouseNameSumm + Math.round(i.totalPrice - (i.totalPrice/100*i.discountPercent))
+                  }
           
         });
 
@@ -99,10 +117,18 @@ function getAPIOrders(callbackd) {
         // console.log(`Кол-во отменённых заказов: ${quantityFalseOrdes}шт. на сумму ${summOrdesFalse}руб.`)        
       }
       if(notGNumber > 0){
-        createLiFreePapam(`Кол-во заказов без номера (добавить ещё проверку по "odid" )`,notGNumber, notGNumberSumm)
-        console.log(`Кол-во заказов без номера: ${notGNumber}шт. (такие заказы не отражены в S4M, это ошибка в API)`)        
+        createLiFreePapamRED(`Ошибка в API. Кол-во заказов без номера заказа (параметр в API: gNumber)`,notGNumber, notGNumberSumm)
       }
-
+      if(notNm > 0){
+        createLiFreePapamRED(`Ошибка в API. Кол-во заказов без артикула товара (параметр в API: nmId)`,notNm, notSumm)
+      }
+      if(notOdId > 0){
+        createLiFreePapamRED(`Ошибка в API. Кол-во заказов без позиции заказа (параметр в API: odid)`,notOdId, notOdIdSumm)
+      }
+      if(notWarehouseName > 0){
+        createLiFreePapamRED(`Ошибка в API. Кол-во заказов без названия склада (параметр в API: WarehouseName)`,notWarehouseName, notWarehouseNameSumm)
+      }
+      razdelitel()
       // ------------------- Строим все заказы ------------------- 
                 callbackd(response)
     })

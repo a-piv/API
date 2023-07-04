@@ -5,7 +5,6 @@ let summOrders = 0;
 let summOrdersCansel = 0;
 let counterNmIdNull = 0;
 
-console.log('lllld')
 function counterOrdersNull() {
   counterOrdersAll = 0;
   counterOrdersOk = 0;
@@ -147,58 +146,59 @@ class Orders {
   }
 }
 
-function counterAllOrders() {
-  console.log("Вызван метод для вываода общих данных");
-  let ul = document.createElement("ul");
-  ul.classList.add("apiInfo_all");
-  let listGeneral = document.createElement("li");
-  listGeneral.classList.add("generalInfo");
-  if (flag) {
-    listGeneral.textContent = `Всего заказов за дату ${
-      document.querySelector("#dateApi").value
-    }: ${counterOrdersAll} шт.`;
-  } else {
-    listGeneral.textContent = `Всего заказво с ${
-      document.querySelector("#dateApi").value
-    } по настоящее время: ${counterOrdersAll} шт.`;
-  }
-  ul.append(listGeneral);
+// Перенёс в файл API_OrdersStatistics
+// function counterAllOrders() {
+//   console.log("Вызван метод для вываода общих данных");
+//   let ul = document.createElement("ul");
+//   ul.classList.add("apiInfo_all");
+//   let listGeneral = document.createElement("li");
+//   listGeneral.classList.add("generalInfo");
+//   if (flag) {
+//     listGeneral.textContent = `Всего заказов за дату ${
+//       document.querySelector("#dateApi").value
+//     }: ${counterOrdersAll} шт.`;
+//   } else {
+//     listGeneral.textContent = `Всего заказво с ${
+//       document.querySelector("#dateApi").value
+//     } по настоящее время: ${counterOrdersAll} шт.`;
+//   }
+//   ul.append(listGeneral);
 
-  let listOrdersOk = document.createElement("li");
-  if (counterOrdersOk > 0) {
-    listOrdersOk.classList.add("secondaryInfo");
+//   let listOrdersOk = document.createElement("li");
+//   if (counterOrdersOk > 0) {
+//     listOrdersOk.classList.add("secondaryInfo");
 
-    listOrdersOk.textContent = `Успешных заказов ${counterOrdersOk} шт. на сумму ${summOrders} руб. `;
-    ul.append(listOrdersOk);
-  }
-  let listOrdersCansel = document.createElement("li");
-  if (counterOrdersCansel > 0) {
-    listOrdersCansel.classList.add("secondaryInfo");
-    listOrdersCansel.classList.add("refund_textColor");
-    listOrdersCansel.textContent = `Отмененных заказов ${counterOrdersCansel} шт. на сумму ${summOrdersCansel} руб.`;
-    ul.append(listOrdersCansel);
-  }
+//     listOrdersOk.textContent = `Успешных заказов ${counterOrdersOk} шт. на сумму ${summOrders} руб. `;
+//     ul.append(listOrdersOk);
+//   }
+//   let listOrdersCansel = document.createElement("li");
+//   if (counterOrdersCansel > 0) {
+//     listOrdersCansel.classList.add("secondaryInfo");
+//     listOrdersCansel.classList.add("refund_textColor");
+//     listOrdersCansel.textContent = `Отмененных заказов ${counterOrdersCansel} шт. на сумму ${summOrdersCansel} руб.`;
+//     ul.append(listOrdersCansel);
+//   }
 
-  // Заказы без артикула
-  if (counterNmIdNull > 0) {
-    // let listOrdersNotNmId = document.createElement("li");
-    // listOrdersNotNmId.classList.add("secondaryInfo");
-    // listOrdersNotNmId.classList.add("refund_textColor");
-    // listOrdersNotNmId.textContent = `Заказов без номера ${counterNmIdNull} шт.`;
-    // ul.append(listOrdersNotNmId);
-    // listOrdersNotNmId.addEventListener("click", console.log("0"));
+//   // Заказы без артикула
+//   if (counterNmIdNull > 0) {
+//     // let listOrdersNotNmId = document.createElement("li");
+//     // listOrdersNotNmId.classList.add("secondaryInfo");
+//     // listOrdersNotNmId.classList.add("refund_textColor");
+//     // listOrdersNotNmId.textContent = `Заказов без номера ${counterNmIdNull} шт.`;
+//     // ul.append(listOrdersNotNmId);
+//     // listOrdersNotNmId.addEventListener("click", console.log("0"));
 
-    // Кнопка под фото
-    let listOrdersNotNmId = document.createElement("a");
-    listOrdersNotNmId.href = "#0";
-    let listOrdersNotNmButton = document.createElement("button");
-    listOrdersNotNmButton.classList.add("forPay_null_text");
-    listOrdersNotNmButton.classList.add("secondaryInfo");
-    listOrdersNotNmButton.textContent = `БАГ: Заказов без номера: ${counterNmIdNull}шт`;
-    listOrdersNotNmId.append(listOrdersNotNmButton);
-    ul.append(listOrdersNotNmId);
-  }
+//     // Кнопка под фото
+//     let listOrdersNotNmId = document.createElement("a");
+//     listOrdersNotNmId.href = "#0";
+//     let listOrdersNotNmButton = document.createElement("button");
+//     listOrdersNotNmButton.classList.add("forPay_null_text");
+//     listOrdersNotNmButton.classList.add("secondaryInfo");
+//     listOrdersNotNmButton.textContent = `БАГ: Заказов без номера: ${counterNmIdNull}шт`;
+//     listOrdersNotNmId.append(listOrdersNotNmButton);
+//     ul.append(listOrdersNotNmId);
+//   }
 
-  document.querySelector(".apiInfo").append(ul);
-  console.log(ul)
-}
+//   document.querySelector(".apiInfo").append(ul);
+//   console.log(ul)
+// }

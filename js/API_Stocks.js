@@ -1,15 +1,27 @@
 
+//let inWayFromClientCounter = 0;
+let toClientCounter = 0;
 const buttonGetStocks_new = document.querySelector(".buttonGetStocks");
 // let massivOrders='';
 
 // Обработик при клике на кнопку Получить "Склад"
 buttonGetStocks_new.addEventListener("click", () => {
+  toClientCounter = 0;
   getAPIStocks((response) => {
     response.forEach(function (params, i) {
       const stocks = new Stock(params, i);
-      console.log('StocksStocks')
       const cardOrdersssss = stocks._cardBackgroundStock();
     });
+
+        // Функция для генерации списка под апи
+        function createLiTwoPapam(quantity, summ) {
+          let liCreate = document.createElement("li");
+          liCreate.textContent = `${quantity}: ${summ}шт.`;
+          document.querySelector(".apiInfo_all").append(liCreate);
+        }
+        createLiTwoPapam(`Всего записей (товаров с размерами)`, response.length)
+        createLiTwoPapam(`Всего "Едет к клиенту"`, toClientCounter);
+    razdelitel ()
   });
 });
 
@@ -28,17 +40,12 @@ function getAPIStocks(callbackd) {
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.addEventListener("load", () => {
     response = JSON.parse(xhr.responseText);
-    console.log(`Кол-во записей: ${response.length}`);
     // massivOrders = response;
 
-    createLiTwoPapam(`Всего товаров`, response.length)
 
-    // Функция для генерации списка под апи
-    function createLiTwoPapam(quantity, summ) {
-      let liCreate = document.createElement("li");
-      liCreate.textContent = `${quantity}: ${summ}шт.`;
-      document.querySelector(".apiInfo_all").append(liCreate);
-    }
+    
+
+
 
     function createLiFreePapam(deckr, quantity, summ) {
       let liCreate = document.createElement("li");
@@ -46,8 +53,17 @@ function getAPIStocks(callbackd) {
       // liCreate.textContent=`Всего заказов: ${response.length}шт.`;
       document.querySelector(".apiInfo_all").append(liCreate);
     }
+      // Создаём итоговые данные, список под строкой с апи
+    //   function cardSummaryDataToClient() {
+    // let liCreate = document.createElement("li");
+    // liCreate.textContent = `К клиенту: ${toClientCounter}шт.`;
+    // document.querySelector(".apiInfo_all").append(liCreate);
+    // console.log(toClientCounter)
+    // cardSummaryDataToClient()
+  // }
 
     // ------------------- Информация о кол-ве закзов и прочее -------------------
+
 
     console.log(response);
 
@@ -145,15 +161,17 @@ function getAPIStocks(callbackd) {
     callbackd(response);
   });
   xhr.send();
+  console.log(toClientCounter)
 }
 
 
        // Функция для генерации списка под апи
-       function createLiTwoPapam(quantity, summ){
-        let liCreate = document.createElement('li');
-        liCreate.textContent=`${quantity}: ${summ}шт.`;
-        document.querySelector('.apiInfo_all').append(liCreate)
-      }
+      //  function createLiTwoPapam(quantity, summ){
+      //   let liCreate = document.createElement('li');
+      //   liCreate.textContent=`${quantity}: ${summ}шт. ${inWayToClientCounter}`;
+      //   document.querySelector('.apiInfo_all').append(liCreate)
+        
+      // }
 
 
 
