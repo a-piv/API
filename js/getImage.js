@@ -58,8 +58,10 @@ function imageCrеateSeo(nmId){
     if (nmId <= 116999999){basketNumber = "08"}else
     if (nmId <= 131200000){basketNumber = "09"}else
     if (nmId <= 160199999){basketNumber = "10"}else
-    if (nmId > 160200000){basketNumber = "11"};
+    if (nmId <= 165599999){basketNumber = "11"}else
+    if (nmId > 165600000){basketNumber = "12"};
     
+
     const imageURL = `https://basket-${basketNumber}.wb.ru`;
     
     // Делим значение на 100000 и берём целую часть

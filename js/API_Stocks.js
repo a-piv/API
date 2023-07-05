@@ -19,7 +19,7 @@ buttonGetStocks_new.addEventListener("click", () => {
           liCreate.textContent = `${quantity}: ${summ}шт.`;
           document.querySelector(".apiInfo_all").append(liCreate);
         }
-        createLiTwoPapam(`Всего записей (товаров с размерами)`, response.length)
+        createLiTwoPapam(`Всего записей (товары с размерами считаются отдельно, хотя у них один артикул)`, response.length)
         createLiTwoPapam(`Всего "Едет к клиенту"`, toClientCounter);
     razdelitel ()
   });

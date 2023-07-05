@@ -12,6 +12,9 @@ let counterAllQuantityProduct = 0;
 // На общую сумму:
 let counterAllQuantitySumm = 0;
 
+// Счётчик nm для размеров, чтобы один артикул считался как один артикул
+let counterNmSize = 0;
+let counterNmSizeSumm = 0;
 // function counterStockNull() {
 //   inWayToClientCounter = 0;
 //   //inWayFromClientCounter = 0;
@@ -36,6 +39,14 @@ class Stock {
     // this.inWayFromClient = apiStocks.inWayFromClient;
     toClientCounter = toClientCounter + (this.quantityFull - this.quantity);
     this.nmId = apiStocks.nmId;
+// Счётчик nm (если не по порядку будет криво считаться)
+if (counterNmSize == this.nmId){
+  console.log(this.nmId)
+}else{
+  counterNmSizeSumm++
+  console.log(counterNmSizeSumm)
+}
+
     this.subject = apiStocks.subject;
     this.category = apiStocks.category;
     this.daysOnSite = apiStocks.daysOnSite;
