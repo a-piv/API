@@ -31,6 +31,20 @@ function getArtikleSearch() {
 
 // }
 
+// Сделать эндпоинты:
+// 1. "Гендер" (suggest - предлагать): Похоже в зависимости от пола выдача.
+// https://search.wb.ru/suggests/api/v3/hint?query=брелок+для+ключей&gender=male&locale=ru&lang=ru&TestID=216&TestGroup=control
+
+// 2. Категории сайта. СДелать все. Есть "акции", но похоже не все. У некоторых категрий есть подкатегории.
+// https://static-basket-01.wb.ru/vol0/data/main-menu-ru-ru-v2.json
+
+// АКЦИИ, все акции, которые находятся в /promotions
+// На сайте их меньше, здесь полный список 
+// https://banners-website.wildberries.ru/public/v1/banners?urltype=16384&apptype=1&displaytype=2&longitude=37.356651&latitude=55.64155&country=1&culture=ru
+
+// 3. Все "Категории" сайта. (Какихто нет, например "Женщинам" и Похоже много старых, ссылки уже не работают, нужно проверять)
+// https://static-basket-01.wb.ru/vol0/data/subject-base.json
+
 
 // Получаем ссылку на промис с массивом данных
 async function getPositionJSON(searchQuery, page) {
@@ -49,6 +63,8 @@ async function getPositionJSON(searchQuery, page) {
   // let query = searchQuery;
   // let positionURL = `https://www.wildberries.ru/catalog/aksessuary/sumki-i-ryukzaki/tags/zhenskie-sumki?sort=popular&page=${page}`;
 
+  
+
 // РЕкламные запросы:
 // https://catalog-ads.wildberries.ru/api/v5/search?keyword=брелок
 
@@ -56,8 +72,14 @@ async function getPositionJSON(searchQuery, page) {
   // Было до 21.06.2023 let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?dest=-1029256,-102269,-2162196,-1257786&locale=ru&query=${searchQuery}&resultset=catalog&page=${page}`
 
 
+  let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?TestGroup=main_page_reranker_and_rates&TestID=186&appType=1&curr=rub&dest=-446117&page=${page}&query=${searchQuery}&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,66,110,48,22,31,71,114&resultset=catalog&sort=popular&spp=31&suppressSpellcheck=false`
+  
+  // Для категорий
+  // let positionURL = `https://catalog.wb.ru/catalog/bijouterie2/catalog?appType=1&curr=rub&dest=-446117&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,22,1,31,66,110,48,71,114&sort=popular&spp=30&subject=297&uclusters=1&page=2`
 
-  let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?TestGroup=no_test&TestID=no_test&appType=1&curr=rub&dest=-446117&page=${page}&query=${searchQuery}&regions=80,38,4,64,83,33,68,70,69,30,86,75,40,1,66,110,22,31,48,71,114&resultset=catalog&sort=popular&spp=27&suppressSpellcheck=false`
+
+
+  // let positionURL = `https://search.wb.ru/exactmatch/ru/common/v4/search?TestGroup=no_test&TestID=no_test&appType=1&curr=rub&dest=-446117&page=${page}&query=${searchQuery}&regions=80,38,4,64,83,33,68,70,69,30,86,75,40,1,66,110,22,31,48,71,114&resultset=catalog&sort=popular&spp=27&suppressSpellcheck=false`
   
   
   // ___________

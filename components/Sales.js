@@ -89,8 +89,9 @@ class Sales {
         "href",
         `https://www.wildberries.ru/catalog/${this.nmId}/detail.aspx`
       );
-
-    this._element.querySelector(".photo-card_small").src = imageCrеateSeo(this.nmId);
+      let imagePath = new imageCrеateSeo(this.nmId);
+      let image = imagePath._getImage();
+    this._element.querySelector(".photo-card_small").src = image;
     this._element.querySelector(".barcodeApi").textContent = this.barcode;
     this._element.querySelector(".brandApi").textContent = this.brand;
     this._element.querySelector(".categoryApi").textContent = this.category;

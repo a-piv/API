@@ -16,8 +16,8 @@ let counterAllQuantitySumm = 0;
 let counterNmSize = 0;
 let counterNmSizeSumm = 0;
 // function counterStockNull() {
-//   inWayToClientCounter = 0;
-//   //inWayFromClientCounter = 0;
+let inWayToClientCounter = 0;
+let inWayFromClientCounter = 0;
 //   counterAllQuantityProduct = 0;
 //   counterAllQuantitySumm = 0;
 // }
@@ -35,8 +35,8 @@ class Stock {
     this.quantityFull = apiStocks.quantityFull;
     // this.quantityNotInOrders = apiStocks.quantityNotInOrders;
     this.warehouseName = apiStocks.warehouseName;
-    // this.inWayToClient = apiStocks.inWayToClient;
-    // this.inWayFromClient = apiStocks.inWayFromClient;
+    this.inWayToClient = apiStocks.inWayToClient;
+    this.inWayFromClient = apiStocks.inWayFromClient;
     toClientCounter = toClientCounter + (this.quantityFull - this.quantity);
     this.nmId = apiStocks.nmId;
 // Счётчик nm (если не по порядку будет криво считаться)
@@ -44,8 +44,7 @@ if (counterNmSize == this.nmId){
   console.log(this.nmId)
 }else{
   counterNmSizeSumm++
-  console.log(counterNmSizeSumm)
-}
+  }
 
     this.subject = apiStocks.subject;
     this.category = apiStocks.category;
@@ -80,7 +79,9 @@ if (counterNmSize == this.nmId){
         `https://www.wildberries.ru/catalog/${this.nmId}/detail.aspx`
       );
 
-    this.cardStocks.querySelector(".photo-card_small").src = imageCrеateSeo(this.nmId);
+      let imagePath = new imageCrеateSeo(this.nmId);
+      let image = imagePath._getImage();
+    this.cardStocks.querySelector(".photo-card_small").src = image;
 
     this.cardStocks.querySelector(".lastChangeDateApi").textContent =
       this.lastChangeDate;
@@ -101,9 +102,10 @@ if (counterNmSize == this.nmId){
       this.warehouseName;
 
 
-    this.cardStocks.querySelector(".inWayToClientApi").textContent = this.quantityFull - this.quantity;
-      // this.inWayToClient;
-
+    this.cardStocks.querySelector(".inWayToClientApi").textContent = this.inWayToClient;
+    // Было раньше (когда убрали inWayToClient)
+    // this.quantityFull - this.quantity;
+    
       
     this.cardStocks.querySelector(".inWayFromClientApi").textContent =
       this.inWayFromClient;
@@ -147,6 +149,7 @@ if (counterNmSize == this.nmId){
   //   let liCreate = document.createElement("li");
   //   liCreate.textContent = `К клиенту: ${inWayToClientCounter}шт.`;
   //   document.querySelector(".apiInfo_all").append(liCreate);
+    
   // }
   
 }

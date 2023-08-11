@@ -382,7 +382,7 @@ font-weight: bold;}
   } */
 
   .loader{
-    background-color: red 
+    position: absolute;
   }
 
 

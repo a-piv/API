@@ -1,5 +1,6 @@
 // Новая функция для определения сслыки на картинку
-function imageCrеateSeo(nmId){
+
+class imageCrеateSeo{
     // в одном basket-03 содержится 14400000 артикулов
     // https://basket-01.wb.ru/vol0/part1/1001/images/c246x328/1.jpg - формат первого товара
     // https://basket-01.wb.ru/vol1/part100/100072/images/c246x328/1.jpg
@@ -47,6 +48,8 @@ function imageCrеateSeo(nmId){
       // basket-01.wb.ru = корзина от... до...
     // vol1 = значения от 0 до ВЫЯСНИТЬ (1449 есть)
     // part144989 = "часть" 
+    
+    constructor(nmId){
     let basketNumber = "01";
     if (nmId <= 14399999){basketNumber = "01"}else
     if (nmId <= 28799999){basketNumber = "02"}else
@@ -61,19 +64,63 @@ function imageCrеateSeo(nmId){
     if (nmId <= 165599999){basketNumber = "11"}else
     if (nmId > 165600000){basketNumber = "12"};
     
-
     const imageURL = `https://basket-${basketNumber}.wb.ru`;
     
     // Делим значение на 100000 и берём целую часть
     const imagVol = `vol${Math.trunc(nmId/100000)}`
       // Делим значение на 1000 и берём целую часть
     const imagePart = `part${Math.trunc(nmId/1000)}`;
-    const imageOkoncanie= 'images/c246x328/1.jpg'
-    const image = `${imageURL}/${imagVol}/${imagePart}/${nmId}/${imageOkoncanie}`;
+    this.pathNM = `${imageURL}/${imagVol}/${imagePart}/${nmId}/`
+    // console.log (pathNM)
+    // return pathNM;
+    }
+  
+    _getImage(){
+      // формат https://basket-05.wb.ru/vol924/part92484/92484285/images/c246x328/1.jpg
+      const imageOkoncanie= 'images/c246x328/1.jpg'
+      let image = `${this.pathNM}/${imageOkoncanie}`;
+      // console.log (image);
+      return image;
+    }
+    _getNmIdJson(){
+      // формат https://basket-11.wb.ru/vol1655/part165599/165599999/info/ru/card.json
+      const pathNmIdJson= 'info/ru/card.json'
+      let nmIdJson = `${this.pathNM}/${pathNmIdJson}`;
+      // console.log(nmIdJson)
+      return nmIdJson;
+    }
     
-    return image;
   }
   
+  
+
+  // function nmIdJSON(nmId){
+  //   let basketNumber = "01";
+  //   if (nmId <= 14399999){basketNumber = "01"}else
+  //   if (nmId <= 28799999){basketNumber = "02"}else
+  //   if (nmId <= 43199999){basketNumber = "03"}else
+  //   if (nmId <= 71999999){basketNumber = "04"}else
+  //   if (nmId <= 100799999){basketNumber = "05"}else
+  //   if (nmId <= 106199999){basketNumber = "06"}else
+  //   if (nmId <= 111599999){basketNumber = "07"}else
+  //   if (nmId <= 116999999){basketNumber = "08"}else
+  //   if (nmId <= 131200000){basketNumber = "09"}else
+  //   if (nmId <= 160199999){basketNumber = "10"}else
+  //   if (nmId <= 165599999){basketNumber = "11"}else
+  //   if (nmId > 165600000){basketNumber = "12"};
+    
+
+  //   const imageURL = `https://basket-${basketNumber}.wb.ru`;
+    
+  //   // Делим значение на 100000 и берём целую часть
+  //   const imagVol = `vol${Math.trunc(nmId/100000)}`
+  //     // Делим значение на 1000 и берём целую часть
+  //   const imagePart = `part${Math.trunc(nmId/1000)}`;
+  //   const imageOkoncanie= 'images/c246x328/1.jpg'
+  //   const nmJSON = `${imageURL}/${imagVol}/${imagePart}/${nmId}/info/ru/card.json`;
+  //   // https://basket-11.wb.ru/vol1655/part165599/165599999/info/ru/card.json
+  //   return nmJSON;
+  // }
   
   
   

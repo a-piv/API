@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/position.css" />
+    <link rel="stylesheet" href="./css/seo.css" />
+
+    <title>Получить API</title>
+  </head>
+  <body>
+    <div class="root">
+      <section class="section getApi">
+        <form name="getPosition" class="form-apiBox">
+          <p class="formGetApi">
+            <label for="dateApiHeader">Введите поисковый запрос: </label>
+            <input
+              name="searchRequesnName"
+              class="searchRequesnClass"
+              placeholder="Введите поисковый запрос"
+              value="Брелок для ключей"
+              maxlength="100"
+              size="50%"
+            />
+          </p>
+          <p class="formGetApi">
+            <label for="dateApiHeader">Введите ссылку на категорию: </label>
+            <input
+              name="categoreLink"
+              class="linkCategory"
+              placeholder="Введите ссылку на категорию"
+              maxlength="500"
+              size="50%"
+            />
+          </p>
+          <!-- <p class="formGetApi">
+            <label for="inputApii">Введите артикул WB: </label>
+            <input
+              name="positionArticlee"
+              class="positionArticle"
+              placeholder="Введите артикул WB"
+              autofocus
+              required
+              maxlength="10"
+            >
+            
+          </p> -->
+        </form>
+        <div class="buttons-get">
+          <p class="formGetApi">
+            <button type="submit" class="buttonGetPosition button">
+              Получить "товары"
+            </button>
+          </p>
+          <p class="formGetApi">
+            <button type="submit" class="buttonOpenSiteWB button sales_color">
+              Открыть запрос на WB
+            </button>
+          </p>
+        </div>
+
+        <!-- Здесь выводим общую информацию. Сколько всего заказов и прочее. -->
+        <div class="apiInfo">
+          <ul class="apiInfo_all"></ul>
+        </div>
+      </section>
+      <section class="section product">
+        <table class="tableSEO">
+          <thead>
+            <tr>
+              <th class="photo-card-th">фото</th>
+              <!-- <th class="imt_id">root(imt_id):</th> -->
+              <th class="nm_id">Артикул:</th>
+              <th class="imt_name">Название:</th>
+              <th class="subj_name">Предмет:</th>
+              <th class="subj_root_name">Родительская категория</th>
+              <th class="description">Описание:</th>
+              <th class="options">options</th>
+              <th class="options">grouped_options</th>
+              <th class="colors">colors</th>
+              <!-- <th class="full_colors">full_colors</th> -->
+              <th class="selling">Магазин (obj)</th>
+              <th class="media">Кол-во фото:</th>
+              <th class="data">data</th>
+              <!-- <th class="is_new_content">NEW</th> -->
+            </tr>
+          </thead>
+          <tbody class="idTabeBody">
+            <template class="templateTabeTr">
+              <tr class="idTabeTr">
+                <td class="photo-card_th">
+                  <a
+                    href="https://www.wildberries.ru/catalog/43414394/detail.aspx"
+                    target="_blank"
+                    class="photo-card-link_th"
+                  >
+                    <img
+                      class="photo-card_small_th"
+                      src="https://img1.wbstatic.net/tm/new/43410000/43414394-1.jpg"
+                      alt=""
+                  /></a>
+                </td>
+                <!-- <td class="imt_id">IMT</td> -->
+                <td class="nm_id">Id</td>
+                <td class="imt_name">Название</td>
+                <td class="subj_name">Тест1</td>
+                <td class="subj_root_name">Тест2</td>
+                <td class="description">Тест3</td>
+                <td class="options">Тест4</td>
+                <td class="grouped_options">Тест4</td>
+                <td class="colors">Тест5</td>
+                <!-- <td class="full_colors">Тест6</td> -->
+                <td class="selling">Тест7</td>
+                <td class="media">Тест8</td>
+                <td class="data">Тест9</td>
+                <!-- <td class="is_new_content">is_new_content</td> -->
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </section>
+      <section class="ordersCard"></section>
+      <section class="salesCard"></section>
+
+      <section>
+        <span class="formula">Так</span> выделены параметры, которые
+        расчитываются из данных в апи (самого числа нет в API).
+      </section>
+      <script src="./pages/seo_fetch.js"></script>
+       <!-- Для генерации картинок -->
+       <script src="./components/GetImage.js"></script>
+    </div>
+  </body>
+</html>

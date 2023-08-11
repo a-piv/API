@@ -11,13 +11,32 @@
   </head>
   <body>
     <div class="root">
-      <div class="buttons-get">
-        <p class="formGetApi">
-          <button type="submit" class="buttonPutRequest button">
-            Добавить запрос
-          </button>
-        </p>
-      </div>
+
+
+      <!-- Блок со всеми Ациями -->
+      <section class="section allActions">
+        <template class="templateAction">
+          <div class="oneAction">
+            <div class="imageAction"><a href="https://www.wildberries.ru/promotions" target="_blank" class="imageActionLink"><img class="imageActionPromo" src="https://static-basket-01.wb.ru/vol1/crm-bnrs/poster/ru/action2/c660x210/1691583025140862464.webp" alt=""></a></div>
+            <div class="promoTextAction">Название акции: <span class="promoTextActionAPI">promoTextAction</span></div>
+            <div class="altAction">Подпись: <span class="altActionAPI">altAction</span></div>
+            <div class="hrefAction">Ссылка: <span class="hrefActionAPI">/catalog/...</span></div>
+            <div class="startDateAction">Дата старта: <span class="startDateActionAPI">2023-08-08</span></div>
+            <div class="endDateAction">Дата завершения: <span class="endDateActionAPI">2023-08-11</span></div>
+            <div class="isPayAction">Платная акция: <span class="isPayActionAPI">True/False</span></div>
+            <div class="countryBitmaskAction">Регион: <span class="countryBitmaskActionAPI">4127/1</span></div>
+          </div>
+        </template>
+
+        <div class="buttons-get buttons-getAction">
+          <p class="formGetApi">
+            <button type="submit" class="buttonGetAction button">
+              Получить все "Акции"
+            </button>
+          </p>
+        </div>
+      </section>
+      <!---------------------- Блок с Ациями законцился ---------------------->
 
       <section class="section getApi">
         <form name="getPosition" class="form-apiBox">
@@ -76,6 +95,13 @@
               Получить "позиции"
             </button>
           </p>
+
+          <p class="formGetApi">
+            <button type="submit" class="buttonPutRequest button">
+              Добавить запрос
+            </button>
+          </p>
+          
           <!-- <p class="formGetApi">
             <button type="submit" class="button sales_color">
               Добавить запрос
@@ -160,6 +186,10 @@
         <span class="formula">Так</span> выделены параметры, которые
         расчитываются из данных в апи (самого числа нет в API).
       </section> -->
+
+      <script src="./components/Promotions.js"></script>
+
+      <script src="./pages/promotions.js"></script>
       <script src="./pages/position.js"></script>
     </div>
   </body>

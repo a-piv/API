@@ -1,13 +1,38 @@
 let counterOrdersAll = 0;
-let counterOrdersOk = 0;
+// let counterOrdersOk = 0;
 let counterOrdersCansel = 0;
 let summOrders = 0;
 let summOrdersCansel = 0;
 let counterNmIdNull = 0;
 
+// orderType - Возможные значения:
+
+// Клиентский - "Заказ, поступивший от покупателя."
+let orderTypeKlientskiy = 0;
+
+//Не из API. Все возвраты
+let orderTypeAllVozvrat= 0;
+
+// Возврат Брака - "Возврат товара продавцу."
+let orderTypeVozvratBraka = 0;
+
+// Принудительный возврат - "Возврат товара продавцу."
+let orderTypePrinuditelniyVozvrat = 0;
+
+// Возврат обезлички - "Возврат товара продавцу."
+let orderTypeVozvratObezlichki = 0;
+
+// Возврат Неверного Вложения - "Возврат товара продавцу."
+let orderTypeVozvratNevernogoVlojeniya = 0;
+
+// Возврат Продавца - "Возврат товара продавцу."
+let orderTypeVozvratProdavca = 0;
+
+
+
 function counterOrdersNull() {
   counterOrdersAll = 0;
-  counterOrdersOk = 0;
+  // counterOrdersOk = 0;
   counterOrdersCansel = 0;
   summOrders = 0;
   summOrdersCansel = 0;
@@ -39,6 +64,7 @@ class Orders {
     this.cancel_dt = param.cancel_dt;
     this.gNumber = param.gNumber;
     this.sticker = param.sticker;
+    this.orderType = param.orderType;
   }
 
   _getTemplateOrders() {
@@ -60,7 +86,8 @@ class Orders {
         `https://www.wildberries.ru/catalog/${this.nmId}/detail.aspx`
       );
 
-      let image = imageCrеateSeo(this.nmId);
+      let imagePath = new imageCrеateSeo(this.nmId);
+      let image = imagePath._getImage();
     this._cardOrders.querySelector(".photo-card_small").src = image;
 
     // this._cardOrders.querySelector(".numberApi").textContent = this.number;
@@ -100,7 +127,7 @@ class Orders {
       this.cancel_dt;
     this._cardOrders.querySelector(".gNumberApi").textContent = this.gNumber;
     this._cardOrders.querySelector(".stickerApi").textContent = this.sticker;
-
+    this._cardOrders.querySelector(".orderType").textContent = this.orderType;
     return this._cardOrders;
   }
 
@@ -133,9 +160,49 @@ class Orders {
       this._cardOrders.querySelector(".isCancel").remove();
       this._cardOrders.querySelector(".cancel_dt").remove();
 
-      counterOrdersOk++;
+      // counterOrdersOk++;
       summOrders = summOrders + this.ordersSumm;
     }
+
+// Считаем кол-во "orderType" возвраты
+
+// ЗАказы нормальные
+   // let orderTypeKlientskiy = 0;
+   if (this.orderType == "Клиентский" ) {
+    orderTypeKlientskiy++;
+    // console.log(`${this.orderType} ${orderTypeKlientskiy}`)
+  }
+
+
+    if (this.orderType == "Возврат Брака" ) {
+    li.classList.add("refund_color");
+    orderTypeVozvratBraka++;
+    orderTypeAllVozvrat++;
+    console.log(`${this.orderType} ${orderTypeVozvratBraka}`)
+    
+    if (this.orderType == "Принудительный возврат" ) {
+      orderTypePrinuditelniyVozvrat++;
+      console.log(`${this.orderType} ${orderTypePrinuditelniyVozvrat}`)}
+
+    
+    
+    if (this.orderType == "Возврат обезлички" ) {
+      orderTypeVozvratObezlichki++;
+      console.log(`${this.orderType} ${orderTypeVozvratObezlichki}`)}
+
+
+    if (this.orderType == "Возврат Неверного Вложения" ) {
+      orderTypeVozvratNevernogoVlojeniya++;
+      console.log(`${this.orderType} ${orderTypeVozvratNevernogoVlojeniya}`)}
+
+    // // Возврат Продавца - "Возврат товара продавцу."
+    // let orderTypeVozvratProdavca = 0;
+    if (this.orderType == "Возврат Продавца" ) {
+      orderTypeVozvratProdavca++;
+      console.log(`${this.orderType} ${orderTypeVozvratProdavca}`)}
+    
+}
+
     // Если размер равен нулю, удаляем поле
     if (this.techSize == 0) {
       this._cardOrders.querySelector(".techSize").remove();

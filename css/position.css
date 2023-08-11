@@ -28,7 +28,7 @@ margin: 10px 10px;
 }
 
 
-.positionCard_name{}
+/* .positionCard_name{} */
 
 .positionCard_priceU{
   font-weight: bold;
@@ -39,7 +39,7 @@ margin: 10px 10px;
 }
 
 
-.positionCard_rating{}
+/* .positionCard_rating{} */
 
 .searchRequestNone{
   display: none;
@@ -60,3 +60,46 @@ margin: 10px 10px;
 /* .positionArticleNew{
   width: 100%;
 } */
+
+
+
+/* ----------- "Акции" в позициях -----------*/
+.allActions{
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 20px);
+}
+.oneAction{
+  width: 23%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 7px;
+  margin: 5px;
+}
+  /* .imageAction{} */
+  .imageActionPromo{
+    width: 100%;
+  }
+  /* .promoTextAction{}
+  .altAction{}
+  .startDateAction{}
+  .isPayAction{}
+  .countryBitmaskAction{} */
+
+  .actionPayTrue{
+    background-color: mediumpurple;
+  }
+  .actionPayFalse{
+    background-color: grey;
+  }
+  .actionPayBrands{
+    position: absolute;
+    font-size: 3rem;
+    margin-top: -10%;
+    margin-left: 5%;
+    transform: rotate(-45deg);
+    opacity: 0.5;
+    color: orangered;
+    text-shadow: 2px 2px 3px black, 0 0 1em red
+  }
+  /* ----------- ----------- ----------- -----------*/
