@@ -70,7 +70,7 @@ class imageCrеateSeo{
     const imagVol = `vol${Math.trunc(nmId/100000)}`
       // Делим значение на 1000 и берём целую часть
     const imagePart = `part${Math.trunc(nmId/1000)}`;
-    this.pathNM = `${imageURL}/${imagVol}/${imagePart}/${nmId}/`
+    this.pathNM = `${imageURL}/${imagVol}/${imagePart}/${nmId}`
     // console.log (pathNM)
     // return pathNM;
     }

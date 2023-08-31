@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/position.css" />
+
+  <title>Получить позиции товара на WB</title>
+</head>
+
+<body>
+  <div class="root">
+    <!-- Блок со всеми Ациями -->
+    <section class="section allActions">
+      <template class="templateAction">
+        <div class="oneAction">
+          <div class="imageAction">
+            <a href="https://www.wildberries.ru/promotions" target="_blank" class="imageActionLink"><img
+                class="imageActionPromo"
+                src="https://static-basket-01.wb.ru/vol1/crm-bnrs/poster/ru/action2/c660x210/1691583025140862464.webp"
+                alt="" /></a>
+          </div>
+          <div class="promoTextAction">
+            Название акции:
+            <span class="promoTextActionAPI">promoTextAction</span>
+          </div>
+          <div class="altAction">
+            Подпись: <span class="altActionAPI">altAction</span>
+          </div>
+          <div class="hrefAction">
+            Ссылка: <span class="hrefActionAPI">/catalog/...</span>
+          </div>
+          <div class="startDateAction">
+            Дата старта: <span class="startDateActionAPI">2023-08-08</span>
+          </div>
+          <div class="endDateAction">
+            Дата завершения: <span class="endDateActionAPI">2023-08-11</span>
+          </div>
+          <div class="isPayAction">
+            Платная акция: <span class="isPayActionAPI">True/False</span>
+          </div>
+          <div class="countryBitmaskAction">
+            Регион: <span class="countryBitmaskActionAPI">4127/1</span>
+          </div>
+        </div>
+      </template>
+
+      <div class="buttons-get buttons-getAction">
+        <p class="formGetApi">
+          <button type="submit" class="buttonGetAction button">
+            Получить все "Акции"
+          </button>
+        </p>
+
+        <!-- Пока не работает -->
+        <p class="formGetApi">
+          <button type="submit" class="buttonGetAction button">
+            Получить все "Акции", где есть Брелоки (297 категория)
+          </button>
+        </p>
+      </div>
+    </section>
+    <!---------------------- Блок с Ациями законцился ---------------------->
+
+    <section class="section getApi">
+      <div class="buttons-get">
+        <p class="formGetApi">
+          <button type="submit" class="buttonGetPosition button">
+            Получить "позиции"
+          </button>
+        </p>
+
+        <p class="formGetApi">
+          <button type="submit" class="buttonPutRequest button">
+            Добавить запрос
+          </button>
+        </p>
+
+        <p class="formGetApi">
+          <button type="submit" class="buttonAddArtikul button">
+            Добавить Товар
+          </button>
+        </p>
+
+        <p class="formGetApi">
+          <button type="submit" class="buttonOpenSiteWB button sales_color">
+            Открыть запрос на WB
+          </button>
+        </p>
+      </div>
+    </section>
+    <fieldset>
+      <legend>Артикулы товаров:</legend>
+
+      <form name="positionAllArticles" class="positionAllArticlesForm">
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="152430992" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="116499320" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="163468844" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="116499325" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="116497755" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="116499323" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="141155418" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="80961327" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="116499324" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="163470044" required minlength="5" maxlength="10" />
+        </p>
+
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="150504899" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="119267564" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="150199996" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="150175703" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="116499321" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="150972626" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="116499322" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="119984108" required minlength="5" maxlength="10" />
+        </p>
+        <p class="positionArticleField">
+          <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+            value="139065094" required minlength="5" maxlength="10" />
+        </p>
+
+
+
+        <!-- <p class="formGetApi">
+            <label for="dateApiHeader">Введите поисковый запрос: </label>
+            <input
+              name="searchRequesnName"
+              class="searchRequesnClass"
+              placeholder="Введите поисковый запрос"
+              value="зеркало на стену"
+              required
+              maxlength="100"
+              size="100"
+            />
+          </p>
+
+          <p class="formGetApi">
+            <label for="formGetApi"> &nbsp;</label>
+            <input
+              type="button"
+              class="searchRequest searchRequestNone"
+              value="Определяется позиция"
+            />
+          </p> -->
+      </form>
+    </fieldset>
+
+    <!-- <section class="section getApi"> -->
+    <fieldset>
+      <legend>Поисковые запросы:</legend>
+
+      <form name="getPosition" class="allSearchRequetForm">
+        <!-- <p class="formGetApi">
+            <label for="inputApii">Введите артикул WB: </label>
+            <input
+              type="number"
+              name="positionArticlee"
+              class="positionArticle"
+              placeholder="Введите артикул WB"
+              value="123793080"
+              autofocus
+              required
+              minlength="5"
+              maxlength="10"
+            />
+          </p> -->
+
+        <p class="formGetApi">
+          <input name="searchRequesnName" class="positionSearchRequestOne" placeholder="Введите поисковый запрос"
+            value="Брелок" required maxlength="100" size="100" />
+        </p>
+        <p class="formGetApi">
+          <input name="searchRequesnName" class="positionSearchRequestOne" placeholder="Введите поисковый запрос"
+            value="Брелок ключей" required maxlength="100" size="100" />
+        </p>
+        <p class="formGetApi">
+          <input name="searchRequesnName" class="positionSearchRequestOne" placeholder="Введите поисковый запрос"
+            value="брелок сумку" required maxlength="100" size="100" />
+        </p>
+        <p class="formGetApi">
+          <input name="searchRequesnName" class="positionSearchRequestOne" placeholder="Введите поисковый запрос"
+            value="брелок рюкзак" required maxlength="100" size="100" />
+        </p>
+        <p class="formGetApi">
+          <input name="searchRequesnName" class="positionSearchRequestOne" placeholder="Введите поисковый запрос"
+          value="Брелоки парные" required maxlength="100" size="100" />
+        </p>
+
+        <!-- <p class="formGetApi">
+            <label for="formGetApi"> &nbsp;</label>
+            <input
+              type="button"
+              class="searchRequest searchRequestNone"
+              value="Определяется позиция"
+            />
+          </p> -->
+      </form>
+
+      <!-- Здесь выводим общую информацию. Сколько всего заказов и прочее. -->
+      <div class="apiInfo">
+        <ul class="apiInfo_all"></ul>
+      </div>
+      <!-- </section> -->
+
+
+      <!-- <section class="section product">
+          <ul class="positionCard_list">
+            <li class="positionCard">
+              <div class="positionCard_Photo-card">
+                <img
+                  class="photo-card_small"
+                  src="https://images.unsplash.com/photo-1636262987985-b7dd44f5fffa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
+                  alt=""
+                />
+              </div>
+              <div class="positionCard_NEW">NEW</div>
+              <div class="positionCard_id"><a href="" target="_blank">113254271</a></div>
+              <div class="positionCard_brand"><a href="" target="_blank">Samsung</a></div>
+              <div class="positionCard_name">Смартфон Galaxy S22 5G: 6.1" 2400x1080/dAMOLED Exynos 2200 8GB/128GB 50+12+10Мp/10Мp 3700 mAh</div>
+              <div class="positionCard_priceU">83500</div>
+              <div class="positionCard_rating">⭐️⭐️⭐️⭐️⭐️</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="ordersCard"></section>
+      <section class="salesCard"></section> -->
+
+      <!-- Здесь поиск по категории -->
+      <!-- <div class="section">
+        <div class="positionCategoryRow"> 
+          <div class="positionArticleNew">
+            <input
+          type="number"
+          class="positionArticleNew"
+          placeholder="Введите артикул WB"
+          value="123793080"
+          autofocus
+          required
+          minlength="5"
+          maxlength="10"
+        />
+        </div>
+
+          <div class="positionCategoryСolumn">
+            Брелоки
+          </div>
+          <div class="positionCategoryСolumn">
+            Позиция (без авторизации)
+          </div>
+          <div class="positionCategoryСolumn">
+            Екатеринбург
+          </div>
+          <div class="positionCategoryСolumn">
+            Краснодар
+          </div>
+          <div class="positionCategoryСolumn">
+            Краснодар
+          </div>
+        </div>
+        
+        <div> 
+          <input  value="Добавить ссылку на категорию" >
+        </div>
+      </div> -->
+
+      <!-- <section>
+        <span class="formula">Так</span> выделены параметры, которые
+        расчитываются из данных в апи (самого числа нет в API).
+      </section> -->
+    </fieldset>
+    <fieldset class="legendPosition">
+      <legend>Позиции товаров:</legend>
+      <table class="positionResultTable">
+        <thead>
+          <tr class="positionTh">
+            <th>Поисковой запрос:</th>
+            <th>123793080<img src="https://basket-08.wb.ru/vol1164/part116499/116499325/images/tm/1.jpg" alt="">Брелок
+              для ключей бэтмен</th>
+            <th>123793080<img src="https://basket-08.wb.ru/vol1164/part116499/116499325/images/tm/1.jpg" alt="">Брелок
+              для ключей бэтмен</th>
+            <th>123793080<img src="https://basket-08.wb.ru/vol1164/part116499/116499325/images/tm/1.jpg" alt="">Брелок
+              для ключей бэтмен</th>
+          </tr>
+        </thead>
+        <tbody class="positionTd">
+          <tr>
+            <td>брелокbbbb</td>
+            <td>1526<br>страниц 45</td>
+            <td>232</td>
+            <td>23</td>
+          </tr>
+          <tr>
+            <td>брелокrrrr для ключей</td>
+            <td>100</td>
+            <td>444</td>
+            <td>234</td>
+          </tr>
+          
+        </tbody>
+        </tr>
+      </table>
+
+    </fieldset>
+
+    <template class="articulNumberInputTemplete">
+      <p class="positionArticleField">
+        <input type="number" name="positionArticlee" class="positionArticleOne" placeholder="Введите артикул WB"
+          value="" required minlength="5" maxlength="10" />
+      </p>
+    </template>
+
+
+    <script src="./components/GetImage.js"></script>
+    <script src="./components/Promotions.js"></script>
+    <script src="./components/Positions_NEW_CreateTable.js"></script>
+    <script src="./components/PositionParserWB.js"></script>
+
+    <script src="./pages/promotions.js"></script>
+    <script src="./pages/position_NEW.js"></script>
+  </div>
+</body>
+
+</html>

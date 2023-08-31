@@ -1,0 +1,47 @@
+/* Отключено данное меню 26.08.2023
+Находится оно на страинце file:///C:/Users/%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9/YandexDisk/stat4market/site/API/seo_fetch.html */
+
+#menu {
+    /* position: absolute; */
+    max-width: 200px;
+           /* margin: 0 auto; */
+           text-align: left
+   }
+   #menu ul {
+    list-style: none;
+           margin: 0;
+           padding: 0;
+           position: relative
+   }
+   #menu li a {
+    height: 32px;
+           height: 24px;
+           text-decoration: none;
+           font: 14px;
+   }
+   #menu li a:link, #menu li a:visited {
+    color: #444444;
+    display: block;
+           background: url(menu.gif);
+           padding: 8px 0 0 35px;
+   }
+   #menu li a:hover {
+    color: #0D1FD2;
+    /* background: url(menu.gif) 0 -32px; */
+    background-color: aqua;
+           padding: 8px 0 0 35px;
+   }
+   #menu li span {
+    position: absolute;
+           left: 99%;
+           margin-top: -32px;
+           width: 100%;
+           max-width: 12em;
+           display: none;
+   }
+   #menu li:hover span {
+    display: block;
+   }
+   #menu li span a {
+    display: inline;
+   }

@@ -1,0 +1,5 @@
+Проверить наличие CORS
+https://cors-test.codehappy.dev/?url=https%3A%2F%2Fstatic-basket-01.wb.ru%2Fvol0%2Fdata%2Fmain-menu-ru-ru-v2.json&origin=https%3A%2F%2Fcors-test.codehappy.dev%2F&method=get
+
+Статья про CORS
+https://habr.com/ru/companies/otus/articles/706908/

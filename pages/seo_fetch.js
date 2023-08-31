@@ -296,35 +296,34 @@ class CreateTrCard {
 }
 
 
+// ------------------------------------ МЕНЮ ------------------------------------
 
-
-// Функция для определения сслыки на картинку (брать её из image). Вынести в другой файл
-function nmIdJSON(nmId){
-  let basketNumber = "01";
-  if (nmId <= 14399999){basketNumber = "01"}else
-  if (nmId <= 28799999){basketNumber = "02"}else
-  if (nmId <= 43199999){basketNumber = "03"}else
-  if (nmId <= 71999999){basketNumber = "04"}else
-  if (nmId <= 100799999){basketNumber = "05"}else
-  if (nmId <= 106199999){basketNumber = "06"}else
-  if (nmId <= 111599999){basketNumber = "07"}else
-  if (nmId <= 116999999){basketNumber = "08"}else
-  if (nmId <= 131200000){basketNumber = "09"}else
-  if (nmId <= 160199999){basketNumber = "10"}else
-  if (nmId <= 165599999){basketNumber = "11"}else
-  if (nmId > 165600000){basketNumber = "12"};
-
+async function parseMenuWB (link){
+  let parseMenuWB =  await fetch(link);
+  // fetch(positionURL);
   
-  const imageURL = `https://basket-${basketNumber}.wb.ru`;
-  
-  // Делим значение на 100000 и берём целую часть
-  const imagVol = `vol${Math.trunc(nmId/100000)}`
-    // Делим значение на 1000 и берём целую часть
-  const imagePart = `part${Math.trunc(nmId/1000)}`;
-  
-  const nmJSON = `${imageURL}/${imagVol}/${imagePart}/${nmId}/info/ru/card.json`;
-  // https://basket-11.wb.ru/vol1655/part165599/165599999/info/ru/card.json
-  // https://basket-05.wb.ru/vol924/part92484/92484285/info/ru/card.json
-  console.log(nmJSON)
-  return nmJSON;
+  let massivMenu =  await parseMenuWB.json()
+  console.log( massivMenu)
+  massivMenu.forEach((art)=>{
+    
+    let menuWB = new GetAllCategories(art);
+    menuWB._getTemplateCatalogMenu()
+    // console.log(art.childs)
+  })
+  return massivMenu;
 }
+let buttonGetMenu = document.querySelector('.buttonGetMenu');
+buttonGetMenu.addEventListener('click', () => {
+  console.log("ckbr menu")
+  let linkMenuWB = `https://static-basket-01.wb.ru/vol0/data/main-menu-ru-ru-v2.json`;
+  let menuuu = parseMenuWB(linkMenuWB);
+  // menuuu.then(){}
+  
+  // menuuu.forEach((art)=>{
+  //   console.log(art)
+  //   // let menuWB = new GetAllCategories(art);
+  //   // let met = menuWB._getTemplateCatalogMenu()
+  // })
+  
+})
+

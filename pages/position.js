@@ -117,10 +117,10 @@ async function getPositionJSONPromise(searchQuery, page) {
 
 // После клика на "Получить позиции". Получаем "поисковый запрос", "артикул" товара и передаём.
 buttonGetPosition.addEventListener("click", () => {
-  resetParam();
-  getSearchQuery();
-  getArtikleSearch();
-  getAllid();
+  resetParam(); //сбросить параметры (артикул, поисковой запрос, номер страницы эп wb) на пустые
+  getSearchQuery(); //получаем поисковой запрос
+  getArtikleSearch(); //получаем артикул товара
+  getAllid(); // делаем парсинг, с первой страницы до 100-той
 });
 
 function resetParam() {
@@ -196,3 +196,69 @@ async function poiskvmassive(massiv) {
     }
   });
 }
+
+
+// Получаем ссылку категории при клике на кнопку
+const categoryyy = document.querySelectorAll(".categoriesName");
+ for (let i = 0; i < categoryyy.length; i++) {
+  categoryyy[i].addEventListener("click", function() {
+      let strlink = categoryyy[i].firstChild.getAttribute("href"); 
+      console.log(strlink)
+      // let fff = 'https://catalog.wb.ru/catalog/gift10/catalog?cat=130604&appType=1&curr=rub&dest=-446117&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,31,66,22,110,48,71,114&spp=27'
+      // ссыка на категории, без CORS https://static-basket-01.wb.ru/vol0/data/main-menu-ru-ru-v2.json
+      let fff = `https://static-basket-01.wb.ru/vol0/data/main-menu-ru-ru-v2.json`;
+      getCatalogPositionJSON(fff)
+      // let strr= strlink.match(/"([^"]*)"/)
+      // console.log(strr)
+     });
+ }
+
+
+//  Функция для определения позиций в категории
+// async function getCatalogPositionJSON(linkCatalog) {
+//   let positionCatalogMassiv = await fetch(linkCatalog, 
+//     {
+//         method: "GET", 
+//         body: JSON.stringify(linkCatalog),
+//         mode: 'cors',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         }
+//     }
+//   ).then(response => response.json())
+//   .then(data => {
+//     console.log(data)
+//   })
+//   .catch((err) => {
+//     console.log(err)
+//     })
+// }
+
+
+
+async function getCatalogPositionJSON(linkCatalog) {
+  let addssdfa = await fetch(linkCatalog, {
+    method: 'GET',
+    // 'Access-Control-Allow-Origin': 'https://www.wildberries.ru/'
+
+  })
+  let asdf = await addssdfa.json();
+  console.log(asdf)
+  // .then((response) => {
+  //   console.log(response.json());
+  //   return response.json();
+  // })
+  // .then((data) => {
+  //   console.log(data);
+  // });
+  // return new Promise((resolve, reject) => {
+  //   const xhr = new XMLHttpRequest();
+    
+  //   xhr.open("GET", linkCatalog);
+  //   xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+  //   xhr.onload = () => resolve(xhr.responseText);
+  //   xhr.onerror = () => reject(xhr.statusText);
+  //   xhr.send();
+  // });
+}
+

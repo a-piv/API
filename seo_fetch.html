@@ -7,11 +7,45 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/position.css" />
     <link rel="stylesheet" href="./css/seo.css" />
+    <!-- Стили меню, где скрываеютя подменюшки у категорий WB -->
+    <!-- <link rel="stylesheet" href="./css/catalog_menu.css" /> -->
 
     <title>Получить API</title>
   </head>
   <body>
     <div class="root">
+      <!-- Меню категорий -->
+      <section class="section getApi">
+        <button type="submit" class="buttonGetMenu button">
+          Посмотреть категории
+        </button>
+        <!-- <template class="templateCatalog"> -->
+          <div id="menu">
+            <!-- Меню с красивыми выпадающими менюшками, скрыл классы -->
+            <!-- <ul class="menuUl">
+              <li class="menuLi">
+                <a href="#" class="menuLink">CSS Главная</a>
+                <span>
+                  <a href="#">Подменю 1</a> <a href="#">Ссылка</a>
+                  <a href="#">Ссылка</a>
+                </span>
+              </li>
+            </ul> -->
+            <!-- <ul class="mainCategory">
+              <li class="mainCategoryLi">Главная Категрия
+                <ul class="subCategory">
+                  <li class="subCategoryLi">Подкатегория
+                    <ul class="subSubCategory">
+                      <li>ПодПодкатегория</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul> -->
+          </div>
+        <!-- </template> -->
+      </section>
+
       <section class="section getApi">
         <form name="getPosition" class="form-apiBox">
           <p class="formGetApi">
@@ -129,8 +163,9 @@
         расчитываются из данных в апи (самого числа нет в API).
       </section>
       <script src="./pages/seo_fetch.js"></script>
-       <!-- Для генерации картинок -->
-       <script src="./components/GetImage.js"></script>
+      <!-- Для генерации картинок -->
+      <script src="./components/GetImage.js"></script>
+      <script src="./components/GetCategories.js"></script>
     </div>
   </body>
 </html>
