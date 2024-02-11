@@ -62,7 +62,8 @@ class imageCrеateSeo{
     if (nmId <= 131200000){basketNumber = "09"}else
     if (nmId <= 160199999){basketNumber = "10"}else
     if (nmId <= 165599999){basketNumber = "11"}else
-    if (nmId > 165600000){basketNumber = "12"};
+    if (nmId <= 191999999){basketNumber = "12"}else
+    if (nmId > 191999999){basketNumber = "13"};
     
     const imageURL = `https://basket-${basketNumber}.wb.ru`;
     
