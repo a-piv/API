@@ -66,7 +66,7 @@ class imageCrеateSeo{
     if (nmId <= 191999999){basketNumber = "12"}else
     if (nmId > 191999999){basketNumber = "13"};
     
-    const imageURL = `https://basket-${basketNumber}.wb.ru`;
+    const imageURL = `https://basket-${basketNumber}.wbbasket.ru`;
     
     // Делим значение на 100000 и берём целую часть
     const imagVol = `vol${Math.trunc(nmId/100000)}`
@@ -78,8 +78,8 @@ class imageCrеateSeo{
     }
   
     _getImage(){
-      // формат https://basket-05.wb.ru/vol924/part92484/92484285/images/c246x328/1.jpg
-      const imageOkoncanie= 'images/c246x328/1.jpg'
+      // формат https://basket-08.wb.ru/vol1164/part116499/116499325/images/c246x328/1.webp
+      const imageOkoncanie= 'images/c246x328/1.webp'
       let image = `${this.pathNM}/${imageOkoncanie}`;
       // console.log (image);
       return image;
