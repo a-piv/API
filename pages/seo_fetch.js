@@ -8,6 +8,8 @@ let searchURLrequest ="https://search.wb.ru/exactmatch/ru/common/v4/search?TestG
 let searchQuery = '';
 let urlSeo = '';
 
+// Ссылка на фильтр в категории: https://catalog.wb.ru/catalog/wedding/v4/filters?appType=1&cat=10320&curr=rub&dest=-446117&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,31,66,22,110,48,71,114&spp=25&uclusters=1
+
 
 // Это ссылка на КАТАЛОГ "https://catalog.wb.ru/catalog/bijouterie2/catalog?appType=1&curr=rub&dest=-446117&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,22,1,31,66,110,48,71,114&sort=popular&spp=30&subject=297&uclusters=1&page=2";
 // Это ссылка на РЕКЛАМУ В КАТАЛОГЕ (menuid можено менять, брать из апи рекаламы)  https://catalog-ads.wildberries.ru/api/v6/catalog?menuid=130486
@@ -297,6 +299,8 @@ class CreateTrCard {
 
 
 // ------------------------------------ МЕНЮ ------------------------------------
+// Ссылка на фильтр в категории (из меню): https://catalog.wb.ru/catalog/wedding/v4/filters?appType=1&cat=10320&curr=rub&dest=-446117&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,31,66,22,110,48,71,114&spp=25&uclusters=1
+
 
 async function parseMenuWB (link){
   let parseMenuWB =  await fetch(link);
@@ -306,6 +310,8 @@ async function parseMenuWB (link){
   console.log( massivMenu)
   massivMenu.forEach((art)=>{
     
+
+
     let menuWB = new GetAllCategories(art);
     menuWB._getTemplateCatalogMenu()
     // console.log(art.childs)
@@ -327,3 +333,11 @@ buttonGetMenu.addEventListener('click', () => {
   
 })
 
+
+// Стоит защита CORS. Функция не активна
+async function getFilterCatalog(numberCategoruQuery){ // сюда вставляем параметр "query" (там номер категории и "color") из меню
+  let linkFilterCategoruNoNumber = `https://catalog.wb.ru/catalog/wedding/v4/filters?appType=1&curr=rub&dest=-446117&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,31,66,22,110,48,71,114&spp=25&uclusters=1`
+  let linkFilter = `${linkFilterCategoruNoNumber}&${numberCategoruQuery}`
+  let filter = await fetch (linkFilter)
+  console.log(filter.json())
+}

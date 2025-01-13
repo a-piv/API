@@ -9,7 +9,11 @@ let positionURL_WB_zaprosAll =
 
 const buttonGetPosition = document.querySelector(".buttonGetPosition");
 let positionMasivArticle = []; // Все артикулы, котоые нужно найти, которые пишем на сайте
-let searchAllRequest = []; // Все поисковые запросы
+let searchAllRequest1 = []; // Все поисковые запросы
+let asdft = ['asdf', ',asdf', "sdf", "брелок для ключей"];
+
+let searchAllRequest = ["брелок","брелок для ключей","брелок на ключи","брелоки","брелок на сумку","брелок для ключей женский","брелок для ключей автомобиля","брелок для ключей мужской","брелок на рюкзак","брелок в машину","брелок для мальчика","брелок сердце","брелок на ключи авто","брелоки для ключей","брелок детский","брелок для девочки","брелок на машину","брелок мужской","брелок для ключей детский","брелок сердечко","брелок на ключи автомобильные","брелок для автомобильных ключей","брелок для сумки","брелок милый","брелок для флешки","брелок на рюкзак девочке","милый брелок","брелок для ключей для мужчин","брелок женский","брелок парню","брелок прикол","брелок для рюкзака","брелок динозавр","брелок для ключей авто","брелок папе","брелоки для мальчиков","брелок для авто","брелок на сумку женский","брелок металлический","брелок на ключи мужчине","брелок для сумки женский","брелок для ключей мужской металлический","брелок дом","брелок для мужчин","брелок на ключи женский","брелок мужу","брелок маленький","брелок любимому","брелок мужской для ключей","брелок женский на ключи","брелок на ключ","брелок для ключей металлический","брелок для детей","брелок для ключей сердце","брелок на портфель","брелок сумка","для ключей брелок","брелок для девочек","брелок на авто","брелок на автомобильные ключи","брелок авто","брелоки на рюкзак","брелок для ключей мужской подарочный","брелоки на ключи","брелок детский для девочек","брелок для ключей для мальчика","брелок на ключи детский","брелок для мальчиков","брелок подруге","маленький брелок","брелоки детские","брелоки для девочек","брелок для ключей мужской авто","брелок на шею","брелок на рюкзак для мальчика","брелок мальчику","брелок детский для мальчиков","брелок прозрачный","брелоки для мужчин","брелок мама","сердечко брелок","брелок для ключей дом","брелок маме","брелок для двоих","брелок для мужчин автомобиль","сердце брелок","брелоки детские для мальчиков","брелок на сумку для девочек","брелок для ключей детский для девочки","сигнальный брелок","брелок ключ","брелок учителю","брелок для папы","брелок для ключей детский для мальчика","брелок для парня","брелок рыба","брелок для ключей мужской с приколом","прикольный брелок","мини брелок","брелок с приколом","брелок для мужчины","брелок мужчине","на ключи брелок","брелок брату","брелок для автомобиля","брелок на серую сумку","брелок для девочки на рюкзак","автобрелок","брелок на сумку металлический","брелок для ключей для девочки","мужской брелок","брелок для мальчика подростка","брелок доя ключей","брелок железный","брелоки для ключей мужские","брелок для мамы","брелок для ключей милый","брелок в авто","брелок кс го","брелоки для ключей женский","брелок для девушки","брелок мужу и папе","брелок для ключей женский талисман","брелок на ключи от дома","брелок девушке","брелок любимому мужу","динозавр брелок","брелок на удачу","брелок дедушке","брелок для ключей прикольный","брелоки мужские","брелок для подростка","брелок 23","брелок для ключей на машину","брелок автомобиль","детский брелок","брелок динозаврик","ключ брелок","брелок для подруги","авто брелок","мужской брелок на ключи","брелок для влюбленных","брелок для ключей сердечко","брелок планы на день","брелок рыбы","брелок дяде","брелок для мужа","брелок на чемодан","брелок для портфеля","брелок талисман","брелок для ключей учителю","брелок для чехла","брелок блестящий","брелок девочке","брелок в автомобиль","брелок сыну от мамы","брелок для рюкзака для девочек","брелок прикольный мужчине","брелок прикол для ключей","рукожоп брелок","брелок ключи","брелок папа","брелок необычный","брелок на коючи","брелок на ключи мужской","брелок прикольный другу","брелок вещь","брелоки на сумку","брелок папе на ключи","брелок рыбаку","брелок рюкзак","на рюкзак брелок","брелок для любимого","брелок на ключи сердце","брелок лезвие","брелок прикольный","брелок сыну","брелок для ключей маленький","игрушки брелок￼","брелок другу","милый брелок на ключи","брелок современный детский","брелоки для автомобильных ключей","брелок для ключа","брелок с","брелок на ключи автомобиля","брелок для пары","брелок с сердечком","брелок для","автобрелок для ключей","брелок для авто ключей","брелок на автомобиль","брелок для ключей для жены","брелок металлический для ключей","брелок металл","брелок ручной работы","брелок love","брелок на ключи для девочки","брелок на ключи девушке","брелок девушки","брелок папе от дочки","брелок для ключей для девочек","брелок для ключей папе","брелок на ключи папе","брелок для женщин","брелок сестре","папе брелок","брелок на 23","брелок для ключ","брелоки женские","брелок для ключей маме","брелок женский на сумку","брелок для ключей подруге","брелок тренеру","брелоки женские для ключей","брелок бабушке","брелок на ключи парню","брелок для бабушки","брелок папе и мужу","брелок лучший папа","брелок для дедушки","брелок с динозавром","на сумку брелок","брелок для ключей девочке","сумка брелок","брелок любимому папе","брелок для ключей для папы","брелок на ключи брату","брелок брат","брелок подарочный","брелок красивый","красивый брелок","брелок для брата","брелок на ключи милый","брелок для друга","брелок для мальчика герои","брелок для ключей дедушке","в машину брелок","брелок для ключей мальчику","брелок для сестры","брелок ты можешь все","брелок металлический на ключи","брелок для ключей парню","брелок для ключей мужчине","брелок на машину ключи","брелок девочки","брелок в машину папе","брелок на ключи дом","брелок для ключей мужу"]
+
 
 // Кнопка "Добавить товар" (артикул для поиска)
 const buttonAddArtikul = document.querySelector(".buttonAddArtikul");
@@ -24,13 +28,13 @@ buttonAddArtikul.addEventListener('click', ()=>{
 // Все функции после нажатия на "Получить позиции"
 buttonGetPosition.addEventListener("click", () => {
   searchAllInputArticul(".positionArticleOne");
-  table();
+  // let allMasZapros = searchAllInputSearchRequest(".positionSearchRequestOne"); //запускаем функцию определить все поисковые запросы, в  searchAllRequest
+  table(searchAllRequest);
   // reee()
   // eerr('Брелок для ключей')
-  getAllSearchRequest(".positionSearchRequestOne");
+  getAllSearchRequest(searchAllRequest);
   // poisk(poiskFraza);
   // console.log(positionMasivArticle);
-  // searchAllInputSearchRequest();
   // searchArtikleInMassiv(positionMasivArticle, searchAllRequest);
 });
 
@@ -50,14 +54,16 @@ function searchAllInputArticul(className) {
 
 // 2. Собираем массив со всеми поисковыми запросами.
 function searchAllInputSearchRequest(className) {
-  let searchRequestAll = document.querySelectorAll(className);
-  searchRequestAll.forEach((searchRequest) => {
+  let searchRequestAllClass = document.querySelectorAll(className);
+  let searchRequestAll = [];
+  searchRequestAllClass.forEach((searchRequest) => {
     let searchRequestValueOne = searchRequest.value.trim();
     if (searchRequestValueOne) {
       searchAllRequest.push(searchRequestValueOne);
     }
   });
-  // console.log(searchAllRequest);
+  console.log(searchAllRequest);
+  return (searchAllRequest)
 }
 
 // 3. В найденном массиве ЭП находим наши товары
@@ -88,13 +94,14 @@ function poisk(poiskFraza) {
   // let searchArt = testClass._searchArtikleInFound (poiskFraza, allArtikleWB)
 }
 
-function table() {
+function table(masZapross) {
   // Создаём заголовок таблицы.
   let table = new PositionTable(searchAllInputArticul(".positionArticleOne")); //Отправляем все артикулы в класс таблицы
   table._createHeaderPositionTable("Поисковый запрос:"); // Создаём заголовк таблицы (слева подпись)
   // Создаём картинки товаров и поисковые в таблице
-  searchAllInputSearchRequest(".positionSearchRequestOne"); //запускаем функцию определить все поисковые запросы, в  searchAllRequest
-  searchAllRequest.forEach((zapros, id) => {
+  
+  masZapross.forEach((zapros, id) => {
+    console.log(zapros, id);
     table._createRowPositionTable(zapros, id);
   });
 }
@@ -159,13 +166,15 @@ let linkEPWB_NotPage_NotSearchRequest = `https://search.wb.ru/exactmatch/ru/male
 
 //Перебераем все наши поисковые запросы и для каждого запускаем функцию поиска товаров в ЭП
 // .positionSearchRequestOne - класс у введённых поисковых запросов
-function getAllSearchRequest(className) {
-  let searchName = document.querySelectorAll(className);
-  // console.log(searchName);
-  searchName.forEach((name, idClassRow) => {
-    console.log(name.value, idClassRow);
-    eerr(name.value, idClassRow); //idClass - идентификатор класса, по номеру определяем нужную строку с запросами
+function getAllSearchRequest(massivPoiskovihZaprosov) {
+  // massivPoiskovihZaprosov.forEach((name, idClassRow) => {
+  //   console.log(name.value, idClassRow);
+  //   eerr(name.value, idClassRow); //idClass (он же id) - идентификатор класса, по номеру определяем нужную строку с запросами
+  massivPoiskovihZaprosov.forEach((zapros, id) => {
+    console.log(zapros, id);
+    eerr(zapros, id);
   });
+  // });
 }
 
 // Получаем поисковый запрос и в следующей функции ищем товары
@@ -173,8 +182,8 @@ function eerr(searchRequest, idClassRow) {
   let searchWords = searchRequest
     .trim()
     .toLowerCase()
-    .replace("  ", " ")
-    .replace(" ", "+");
+    // .replace("  ", " ")
+    // .replace(" ", "+");
   // Нет страницы
   searchRequest_notPage = `${linkEPWB_NotPage_NotSearchRequest}&query=${searchWords}`;
   // console.log(searchRequest_notPage);
@@ -183,7 +192,7 @@ function eerr(searchRequest, idClassRow) {
 
   // -------------Здесь запускаем цикл, чтобы 60 страниц парсилось-------------
   if (alllMasivvArt.length > 0) {
-    for (let page = 1; page <= 60; page++) {
+    for (let page = 1; page <= 10; page++) {
       // console.log(masivvArt.length)
       console.log(`Запустили страницу: ${page}`);
       reee(page);
@@ -207,19 +216,19 @@ function eerr(searchRequest, idClassRow) {
         testEPWB(linkWBEndpoint)
           .then((resp) => {
             let findArt = resp.data.products; //Получаме объект со всеми товарами 
-            console.log(`Выводим один раз. Кол-во итераций(для каждого нового поискового запроса должно быть 13): ${alllMasivvArt.length}`);
-            let massivvSearchRequest = searchAllInputSearchRequest(".positionSearchRequestOne") //Массив со всеми поисковыми запросами.
+            // console.log(`Выводим один раз. Кол-во итераций(для каждого нового поискового запроса должно быть 13): ${alllMasivvArt.length}`);
+            //let massivvSearchRequest = searchAllInputSearchRequest(".positionSearchRequestOne") //Массив со всеми поисковыми запросами.
             
             // Для каждого найденного артикула проводим проверку, проверяем нет ли у нас такого артикула
             findArt.forEach((art, nm) => {
-              console.log(`Все найденные по запросу ЭП ${nm}: ${art.id}`); // Выводит только найденные арткулы.
+              // console.log(`Все найденные по запросу ЭП ${nm}: ${art.id}`); // Выводит только найденные арткулы.
               let artWB = art.id;
               // console.log(`${nm}: артикул WB: ${artWB}`);
-              console.log(`Кол-во данных в массиве с искомыми товарами: ${masivvArt.length}`)
+              // console.log(`Кол-во данных в массиве с искомыми товарами: ${masivvArt.length}`)
 
               
               for (let nmNumber = 0; nmNumber < masivvArt.length; nmNumber++) {
-                console.log(`Поиск на страницеtt: ${page}`)
+                // console.log(`Поиск на страницеtt: ${page}`)
                 if (artWB == masivvArt[nmNumber]) {
                   console.log(
                     `Позиция товара: ${nm + 1}, артикул товара: ${art.id}`
@@ -234,14 +243,14 @@ function eerr(searchRequest, idClassRow) {
                   // console.log(document.querySelector(`.buttonGetPosition`));
                   document.querySelector(
                     `.nm-${idClassRow}-${masivvArt[nmNumber]}`
-                  ).innerHTML = `Не найден на страице: ${page}`;
+                  ).innerHTML = `-`//`Не найден на страице: ${page}`;
                   
                 }
               }
               // return masivvArt;
             });
             // console.log(masivvArt);
-            console.log(alllMasivvArt);
+            // console.log(alllMasivvArt);
           })
           .catch((err) => {
             console.log(`Ошибка в адресе ЭП ${err}`);
@@ -253,3 +262,13 @@ function eerr(searchRequest, idClassRow) {
   }
 }
 // -----------------------------------------------------------------
+// Каталог
+// let linkKatalog = `https://catalog.wb.ru/catalog/bags2/catalog?appType=1&curr=rub&dest=-446117&kind=2;15&page=1&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,31,66,22,110,48,71,114&sort=popular&spp=25&subject=50&uclusters=1`;
+// let linkSearch = `https://search.wb.ru/exactmatch/ru/male/v4/search?TestGroup=bsk_req_repurchase_block&TestID=227&appType=1&curr=rub&dest=-446117&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,31,66,22,110,48,71,114&resultset=catalog&sort=popular&spp=25&suppressSpellcheck=false&uclusters=1`;
+
+// async function testkatl (linkKatalog){
+//   let rezz = await fetch(linkKatalog) //.then((reo)=>{console.log(reo)})
+//   return (rezz)
+// }
+// console.log(testkatl(linkKatalog))
+

@@ -1,4 +1,5 @@
 //Эндпойт с меню https://static-basket-01.wb.ru/vol0/data/main-menu-ru-ru-v2.json
+//Эндпойт с фильтром https://catalog.wb.ru/catalog/wedding/v4/filters?appType=1&cat=10320&color=12632256;15450807;15631085;15791590;16119260;16119261;16711167;16766720;16777215&curr=rub&dest=-446117&regions=80,38,83,4,64,33,68,70,30,40,86,75,69,1,31,66,22,110,48,71,114&spp=25&uclusters=1
 
 class GetAllCategories {
   constructor(param, i) {
@@ -11,6 +12,10 @@ class GetAllCategories {
     this.query = param.query;
     this.landing = param.landing;
     this.childs = param.childs;
+  }
+
+  _getFilters(filter){
+    console.log(filter)
   }
 
   _getTemplateCatalogMenu() {
